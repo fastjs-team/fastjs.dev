@@ -1,0 +1,23 @@
+{
+  "en": {
+    "main": {
+      "title": "Powerful, simple and fast javascript library",
+      "download": "Deploy npm version to your project",
+      "downloadCopy": "Download command copy to your clipboard"
+    },
+    "bind": {
+      "left": {
+        "title": "Object to Dom, So easy",
+        "desc": "Use FastjsBind to bind a object to a dom, or more."
+      },
+      "right": {
+        "button": "Add a dom"
+      }
+    },
+    "bottom": {
+      "data": {
+        "authorInfo": "Made by fastjs-team(dy-xiaodong2022)"
+      }
+    }
+  }
+}

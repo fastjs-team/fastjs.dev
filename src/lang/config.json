@@ -1,0 +1,12 @@
+{
+  "langList": [
+    "en",
+    "zh"
+  ],
+  "en": {
+    "title": "Fastjs - A Powerful, simple and fast javascript library"
+  },
+  "zh": {
+    "unsupport": "当前页面部分内容不支持中文"
+  }
+}
