@@ -84,6 +84,13 @@ export default {
   opacity: 0.6;
 }
 
+// media 1400
+@media screen and (max-width: 1400px) {
+  .transform {
+    background-size: cover;
+  }
+}
+
 @keyframes background_transform {
   0% {
     background-position: 0 50%
