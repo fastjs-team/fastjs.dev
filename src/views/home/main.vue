@@ -2,9 +2,9 @@
   <div class="main-wrap">
     <div class="transform"></div>
     <div class="main">
-      <shake on="click" class="title">
+      <span class="title">
         {{ lang("title") }}
-      </shake>
+      </span>
       <div class="npm-download">
       <span>
         {{ lang("download") }}
@@ -32,6 +32,7 @@ import shake from "@/components/shake.vue";
 import {CopyOutlined} from "@ant-design/icons-vue";
 import {message} from "ant-design-vue";
 import langSetup from "@/lang/setup";
+import {copy} from "fastjs-next";
 
 export default {
   name: "main",
@@ -70,13 +71,17 @@ export default {
 .transform {
   width: 100vw;
   height: 100%;
-  background: linear-gradient(-50deg, #42d392, #647eff, #ce3e75, #23a6d5, #23d5ab);
   position: absolute;
   z-index: -1;
   overflow: hidden;
-  transition: 0.1s;
-  animation: background_transform 30s linear infinite;
-  background-size: 500% 500%;
+  //background: linear-gradient(-50deg, #42d392, #647eff, #ce3e75, #23a6d5, #23d5ab);
+  //transition: 0.1s;
+  //animation: background_transform 30s linear infinite;
+  //background-size: 500% 500%;
+  background: url("./20221204.jpg");
+  background-size: 65%;
+  background-position: center;
+  opacity: 0.6;
 }
 
 @keyframes background_transform {
@@ -110,6 +115,7 @@ export default {
     margin-top: 10vh;
     font-weight: 700;
     font-size: 3.5rem;
+    user-select: none;
   }
 
   .npm-download {
