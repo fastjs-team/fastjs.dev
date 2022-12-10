@@ -74,14 +74,10 @@ export default {
   position: absolute;
   z-index: -1;
   overflow: hidden;
-  //background: linear-gradient(-50deg, #42d392, #647eff, #ce3e75, #23a6d5, #23d5ab);
-  //transition: 0.1s;
-  //animation: background_transform 30s linear infinite;
-  //background-size: 500% 500%;
-  background: url("./20221204.jpg");
-  background-size: 65%;
-  background-position: center;
-  opacity: 0.6;
+  background: linear-gradient(-50deg, #42d392, #647eff, #ce3e75, #23a6d5, #23d5ab);
+  transition: 0.1s;
+  animation: background_transform 30s linear infinite;
+  background-size: 500% 500%;
 }
 
 // media 1400
