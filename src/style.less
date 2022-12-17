@@ -15,3 +15,31 @@ a {
     color: unset;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    transition: background-color 0.5s, color 0.5s;
+    background-color: #1e1e1e !important;
+    color: #d4d4d4 !important;
+
+    #app {
+      .codeblock {
+        background-color: #252526;
+        color: unset !important;
+      }
+
+      span:not(.code, .code *), p, h1, h2, h3, h4, h5, h6, a {
+        color: #d4d4d4 !important;
+      }
+
+      #topbar {
+        background-color: #252526;
+        border-bottom: none !important;
+      }
+
+      .main-wrap {
+        filter: brightness(0.6);
+      }
+    }
+  }
+}
