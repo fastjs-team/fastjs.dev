@@ -73,7 +73,8 @@ export default {
   border-radius: 10px;
   display: flex;
   width: 100%;
-  font-family: "Lucida Console", "Courier New", monospace !important;
+  font-family: "JetBrains Mono";
+  font-size: 12px;
 
   .scroll {
     overflow-y: auto;

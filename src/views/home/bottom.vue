@@ -6,7 +6,6 @@
       <a href="https://docs.fastjs.com.cn/contribute/sponsor.html" target="_blank" class="support">Support</a>
     </div>
     <div class="data">
-      <a class="beian" href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021023713号-6</a>
       <a class="authorInfo">{{ lang("data.authorInfo") }}</a>
     </div>
   </div>
