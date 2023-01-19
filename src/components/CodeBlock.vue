@@ -65,6 +65,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+// if dark mode
+@media (prefers-color-scheme: dark) {
+  .copy {
+    color: #626262;
+  }
+}
+
 .codeblock {
   position: relative;
   padding: 8px 26px;
