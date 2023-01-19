@@ -3,11 +3,11 @@
     <div class="transform"></div>
     <div class="main">
       <span class="title">
-        {{ lang("title") }}
+        {{ lang.title }}
       </span>
       <div class="npm-download">
       <span>
-        {{ lang("download") }}
+        {{ lang.download }}
       </span>
         <shake class="code shake" on="click" @click="codeCopy">
         <span style="color: #c8c8c8">
@@ -46,7 +46,7 @@ export default {
   methods: {
     codeCopy() {
       copy("npm i fastjs-next");
-      message.success(this.lang("downloadCopy"));
+      message.success(this.lang.downloadCopy);
     }
   },
   components: {

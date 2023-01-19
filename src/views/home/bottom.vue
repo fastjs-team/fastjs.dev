@@ -1,12 +1,12 @@
 <template>
   <div class="bottom">
     <div class="link">
-      <a href="https://github.com/fastjs-team/" target="_blank" class="github">Github</a>
-      <a href="https://docs.fastjs.com.cn/" target="_blank" class="docs">Docs</a>
-      <a href="https://docs.fastjs.com.cn/contribute/sponsor.html" target="_blank" class="support">Support</a>
+      <a href="https://github.com/fastjs-team/fastjs-next" target="_blank" class="github">Github</a>
+      <a href="https://docs.fastjs.cc/" target="_blank" class="docs">Docs</a>
+      <a href="https://docs.fastjs.cc/contribute/sponsor.html" target="_blank" class="support">Support</a>
     </div>
     <div class="data">
-      <a class="authorInfo">{{ lang("data.authorInfo") }}</a>
+      <a class="authorInfo">{{ lang.data.authorInfo }}</a>
     </div>
   </div>
 </template>
