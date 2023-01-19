@@ -21,7 +21,7 @@ export default {
   },
   "resolve": {
     "alias": {
-      "@": "E:\\Program\\Fastjs\\src"
+      "@": __dirname + "/src"
     }
   }
 }
