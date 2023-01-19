@@ -1,6 +1,6 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
+    <transition name="fade">
       <component :is="Component" />
     </transition>
   </router-view>
@@ -19,7 +19,7 @@ export default {
     if (language === "en") {
       localStorage.setItem("lang", "en")
     }
-    document.title = lang("title")
+    document.title = lang.title
     return {}
   }
 }
