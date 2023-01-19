@@ -7,11 +7,11 @@
     },
     "bind": {
       "left": {
-        "title": "Object to Dom, So easy",
-        "desc": "Use FastjsBind to bind a object to a dom, or more."
+        "title": "FastjsDate",
+        "desc": "Can't be simpler. Easy like a pie."
       },
       "right": {
-        "button": "Add a dom"
+        "button": "Change format"
       }
     },
     "bottom": {
