@@ -43,10 +43,10 @@ export default {
       right: topbar.right.reverse()
     }
     list.left.forEach(item => {
-      item.name = lang(item.name)
+      item.name = lang[item.name]
     })
     list.right.forEach(item => {
-      item.name = lang(item.name)
+      item.name = lang[item.name]
     })
     return {
       list
@@ -88,7 +88,7 @@ export default {
         font-size: 14px;
         color: black;
         height: 100%;
-        padding: 0 0.6vw;
+        padding: 0 15px;
         line-height: 50px;
         display: inline-block;
       }

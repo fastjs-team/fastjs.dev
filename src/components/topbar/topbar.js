@@ -8,7 +8,7 @@ export default {
   "right": [
     {
       "name": "docs",
-      "link": "https://docs.fastjs.com.cn/",
+      "link": "https://docs.fastjs.cc/",
       "newPage": true
     }
   ]
