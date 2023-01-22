@@ -13,7 +13,7 @@
       <div class="right">
         <div class="content">
           <span id="fastjsDate_show"></span>
-          <span class="blank">====================</span><br/>
+          <span class="blank">====================</span>
           <a-button class="btn" type="primary" @click="nextFormat">{{ lang.right.button }}</a-button>
         </div>
       </div>
@@ -90,7 +90,7 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
     }
 
     .right {
-      #fastjsDate_show {
+      span {
         display: block;
       }
 
