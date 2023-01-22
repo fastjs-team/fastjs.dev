@@ -3,6 +3,7 @@
     <topbar/>
     <Main/>
     <Date/>
+    <Ajax/>
     <Bottom/>
   </div>
 </template>
@@ -12,10 +13,12 @@ import Topbar from "@/components/topbar/topbar.vue";
 import Main from "./main.vue";
 import Date from "@/views/home/date.vue";
 import Bottom from "@/views/home/bottom.vue";
+import Ajax from "@/views/home/ajax.vue";
 
 export default {
   name: "home",
   components: {
+    Ajax,
     Bottom,
     Topbar,
     Main,
