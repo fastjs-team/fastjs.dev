@@ -82,8 +82,9 @@ export default {
 
 // media 1400
 @media screen and (max-width: 1400px) {
-  .transform {
-    background-size: cover;
+  .title {
+    font-size: 3.3rem !important;
+    padding: 0 30px;
   }
 }
 
