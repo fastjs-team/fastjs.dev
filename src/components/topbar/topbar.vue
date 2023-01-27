@@ -34,7 +34,6 @@ import langSetup from '@/lang/setup'
 
 const lang = langSetup("topbar")
 
-console.log(topbar);
 export default {
   name: "topbar",
   data() {

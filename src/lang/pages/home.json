@@ -28,5 +28,35 @@
         "authorInfo": "Made by fastjs-team(dy-xiaodong2022)"
       }
     }
+  },
+  "zh": {
+    "main": {
+      "title": "强大，简洁的javascript工具库",
+      "download": "部署到项目",
+      "downloadCopy": "已复制到剪贴板"
+    },
+    "bind": {
+      "left": {
+        "title": "FastjsDate",
+        "desc": "就像走路一样简单。"
+      },
+      "right": {
+        "button": "更换格式"
+      }
+    },
+    "ajax": {
+      "left": {
+        "title": "FastjsAjax",
+        "desc": "这，就是Fast Ajax。"
+      },
+      "right": {
+        "button": "发送请求"
+      }
+    },
+    "bottom": {
+      "data": {
+        "authorInfo": "由fastjs-team(dy-xiaodong2022)制作"
+      }
+    }
   }
 }

@@ -2,5 +2,9 @@
   "en": {
     "docs": "Docs",
     "home": "Home"
+  },
+  "zh": {
+    "docs": "文档",
+    "home": "首页"
   }
 }

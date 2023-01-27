@@ -14,21 +14,22 @@ export default function get(path, defaultValue) {
         index = require(`./${path}/index.json`)
     }
     if (language !== "en") {
-        const defaultLangIndex = index.zh
-        index = index[language]
+        const defaultLangIndex = index.en
+        index = index[language] || defaultLangIndex
         // 递归检查
-        const check = (obj) => {
+        const check = (obj, def) => {
             // 比对默认语言和当前语言，如果当前语言没有翻译，就用默认语言
-            for (let key in obj) {
+            for (let key in def) {
                 if (typeof obj[key] === "object") {
                     check(obj[key])
                 } else {
                     if (!obj[key]) {
-                        obj[key] = defaultLangIndex[key]
+                        obj[key] = def[key]
                     }
                 }
             }
         }
+        check(index, defaultLangIndex)
     } else index = index.en
     if (defaultValue)
         defaultValue.split(".").forEach((item) => {
