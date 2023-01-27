@@ -979,10 +979,10 @@
   "resolved" "https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz"
   "version" "2.1.0"
 
-"fastjs-cli@^2.4.5":
-  "integrity" "sha512-MOBkV4Vf93xs8w8NbFhFwGxd3nF6w0U32aYWbyNQ/X90BjmxzCTsAdVNCEGSLuZ3QLjp7ou8m9Z+NTKgol4Icg=="
-  "resolved" "https://registry.npmjs.org/fastjs-cli/-/fastjs-cli-2.4.5.tgz"
-  "version" "2.4.5"
+"fastjs-cli@^2.4.7":
+  "integrity" "sha512-FiHoWM+bdRNZGW7mLu6ye3JW7iCRw53/jOW4oQUKynI45p5mJsr9Zx28+Pd6KfVCYf49l7ZCsD1Et6fUBQ+itw=="
+  "resolved" "https://registry.npmjs.org/fastjs-cli/-/fastjs-cli-2.4.7.tgz"
+  "version" "2.4.7"
   dependencies:
     "commander" "^7.1.0"
     "fs-extra" "^10.1.0"
