@@ -562,10 +562,10 @@
   dependencies:
     "color-convert" "^2.0.1"
 
-"ant-design-vue@^3.2.15":
-  "integrity" "sha512-sJfE7LWimSdAPe4dzNyQBrmVMnOTNQTkG9oOyr+7W8qIYrX8sYWyC68Nn1uum4KBJUSZUa/BU6dohvTG0urBhA=="
-  "resolved" "https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-3.2.15.tgz"
-  "version" "3.2.15"
+"ant-design-vue@^3.2.14":
+  "integrity" "sha512-v4qeZGpmONUOvz6lyp/fJVoVthqV16CiG1rGrUZVB2IgRjCy59y2/F+RA67ZSJmjGIvqsE+tLoPmjJ0HVXg9XA=="
+  "resolved" "https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-3.2.14.tgz"
+  "version" "3.2.14"
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-vue" "^6.1.0"

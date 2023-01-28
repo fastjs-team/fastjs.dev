@@ -11,8 +11,21 @@
       </div>
     </div>
     <div class="right">
-      <div class="item" v-for="item in list.right">
-        <router-link :to="item.link" class="link" v-if="!item.newPage">
+      <div class="item" v-for="item in list.right" :class="{drop: item.sub !== undefined}">
+        <a-dropdown v-if="item.sub !== undefined">
+          <a class="ant-dropdown-link" @click.prevent>
+            {{ item.name }}
+            <DownOutlined/>
+          </a>
+          <template #overlay>
+            <a-menu>
+              <a-menu-item v-for="sub in item.sub" :key="sub.name" @click="sub.do()">
+                <span>{{ sub.name }}</span>
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
+        <router-link :to="item.link" class="link" v-else-if="!item.newPage">
           {{ item.name }}
         </router-link>
         <a :href="item.link" target="_blank" class="link" v-else>{{ item.name }}</a>
@@ -29,7 +42,7 @@
 
 <script>
 import topbar from './topbar.js'
-import {GithubOutlined} from '@ant-design/icons-vue'
+import {GithubOutlined, DownOutlined} from '@ant-design/icons-vue'
 import langSetup from '@/lang/setup'
 
 const lang = langSetup("topbar")
@@ -41,6 +54,7 @@ export default {
       left: topbar.left.reverse(),
       right: topbar.right.reverse()
     }
+    console.log(list)
     list.left.forEach(item => {
       item.name = lang[item.name]
     })
@@ -53,6 +67,7 @@ export default {
   },
   components: {
     GithubOutlined,
+    DownOutlined
   }
 }
 </script>
@@ -98,6 +113,17 @@ export default {
         transition: 0.2s;
         background: linear-gradient(to right bottom, #42d392, #647eff);
         margin-top: 1px;
+      }
+
+      &.drop {
+        .bar {
+          display: none;
+        }
+
+        a {
+          height: 100%;
+          line-height: 50px;
+        }
       }
 
       &:hover > .bar {
