@@ -82,7 +82,6 @@ export default {
   padding: 0 10vw;
 
   .left, .right {
-    flex: 1;
     display: flex;
     align-items: center;
 
@@ -145,7 +144,7 @@ export default {
   }
 
   .right {
-    justify-content: flex-end;
+    margin-left: auto;
   }
 }
 </style>
