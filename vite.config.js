@@ -1,5 +1,4 @@
 import vue from '@vitejs/plugin-vue'
-import {viteRequire} from 'vite-require'
 import mkcert from "vite-plugin-mkcert";
 
 export default {
@@ -8,10 +7,7 @@ export default {
    },
   "plugins": [
     vue(),
-    mkcert(),
-    viteRequire({
-      fileRegex: /(.js|.ts|.vue)$/,
-    })
+    mkcert()
   ],
   "base": "./",
   "build": {

@@ -23,7 +23,7 @@ export default {
   name: "sponsor-afdian",
   data() {
     return {
-      lang: langSetup("pages/sponsor", "afdian"),
+      lang: langSetup("sponsor", "afdian"),
       config: langSetup("config"),
       logo: logo,
     };

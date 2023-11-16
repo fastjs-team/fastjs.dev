@@ -19,7 +19,7 @@ export default {
   name: "bottom",
   data() {
     return {
-      lang: langSetup("pages/home", "bottom")
+      lang: langSetup("home", "bottom")
     }
   }
 }

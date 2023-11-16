@@ -31,7 +31,7 @@ export default {
   name: "bind",
   data() {
     return {
-      lang: langSetup("pages/home", "ajax"),
+      lang: langSetup("home", "ajax"),
       code1: `import { FastjsAjax } from "fastjs-next";
 import { message } from "ant-design-vue";
 

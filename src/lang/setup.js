@@ -1,18 +1,25 @@
 import cookie from 'js-cookie'
 
-export default function get(path, defaultValue) {
+import home from "./pages/home.json"
+import sponsor from "./pages/sponsor.json"
+import topbar from "./components/topbar.json"
+import config from "./config.json"
+
+export default function get(name, defaultValue) {
     let language = cookie.get("language")
-    const langList = require(`./config.json`).langList
+    const langList = config.langList
     if (!language || !langList.includes(language)) {
         language = "en"
         cookie.set("language", "en")
     }
     let index
-    try {
-        index = require(`./${path}.json`)
-    } catch (e) {
-        index = require(`./${path}/index.json`)
+    let langFiles = {
+        home,
+        sponsor,
+        topbar,
     }
+    index = langFiles[name]
+    if (!index) throw new Error("Language file not found")
     if (language !== "en") {
         const defaultLangIndex = index.en
         index = index[language] || defaultLangIndex

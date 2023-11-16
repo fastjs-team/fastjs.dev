@@ -35,7 +35,7 @@ export default {
       format: 0,
       autoUpdateDate: setInterval(this.updateTime, 1000),
       formatList: ["Y-M-D h:m:s", "Y-M-D", "H:m:s A", "<Now time: >H:m:s A"],
-      lang: langSetup("pages/home", "bind"),
+      lang: langSetup("home", "bind"),
       code1: `import { FastjsDate } from "fastjs-next";
 
 console.log(new FastjsDate("Y-M-D h:m:s").toString());

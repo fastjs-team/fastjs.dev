@@ -24,7 +24,7 @@ export default {
   name: "sponsor-github",
   data() {
     return {
-      lang: langSetup("pages/sponsor", "github"),
+      lang: langSetup("sponsor", "github"),
       config: langSetup("config"),
       logo: logo,
     };

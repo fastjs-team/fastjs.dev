@@ -35,7 +35,7 @@ export default {
   name: "main",
   data() {
     return {
-      lang: langSetup("pages/home", "main"),
+      lang: langSetup("home", "main"),
     };
   },
   methods: {
