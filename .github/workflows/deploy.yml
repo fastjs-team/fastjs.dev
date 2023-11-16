@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  Deploy:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,11 +30,28 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build
+      - name: Pack
         run: npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          name: dist
+          path: dist
+
+
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: Build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+        id: deployment
