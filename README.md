@@ -1,7 +1,11 @@
 # fastjs.cc
-## Important Change
 
-This repo name has been changed from `fastjs.cc` to `website`.
+[//]: # (## Important Change)
+
+[//]: # ()
+[//]: # (This repo name has been changed from `fastjs.cc` to `website`.)
+
+[//]: # (For some reason, the repo name won't be change for now.)
 
 ## Auto Deploy
 
