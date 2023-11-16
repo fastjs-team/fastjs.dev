@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <topbar />
     <Main />
     <Date />
     <Ajax />
@@ -9,7 +8,6 @@
 </template>
 
 <script>
-import Topbar from "@/components/topbar/topbar.vue";
 import Main from "./main.vue";
 import Date from "@/views/home/date.vue";
 import Bottom from "@/views/home/bottom.vue";
@@ -20,7 +18,6 @@ export default {
   components: {
     Ajax,
     Bottom,
-    Topbar,
     Main,
     Date
   }

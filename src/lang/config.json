@@ -4,9 +4,29 @@
     "zh"
   ],
   "en": {
-    "title": "Fastjs - Powerful javascript library"
+    "title": "Fastjs - Powerful javascript library",
+    "sponsor": [
+      {
+        "key": "github",
+        "name": "Github Sponsor"
+      },
+      {
+        "key": "afdian",
+        "name": "afdian.net"
+      }
+    ]
   },
   "zh": {
-    "title": "Fastjs - 一个强大，简洁的前端工具库"
+    "title": "Fastjs - 一个强大，简洁的前端工具库",
+    "sponsor": [
+      {
+        "key": "github",
+        "name": "Github Sponsor"
+      },
+      {
+        "key": "afdian",
+        "name": "爱发电"
+      }
+    ]
   }
 }

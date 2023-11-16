@@ -1,8 +1,26 @@
+html {
+  zoom: 0.9;
+}
+
 #app {
   overflow: hidden;
+  filter: brightness(0.9);
+}
+
+.ant-btn {
+  background: transparent;
+  border-color: #d4d4d4;
+  transition: 0.4s;
+
+  &:hover {
+    background: transparent;
+    border-color: rgb(149, 149, 149) !important;
+  }
 }
 
 a {
+text-decoration: none;
+
   &:hover {
     text-decoration: none;
   }
@@ -16,30 +34,39 @@ a {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    transition: background-color 0.5s, color 0.5s;
-    background-color: #1e1e1e !important;
-    color: #d4d4d4 !important;
+body {
+  transition: background-color 0.5s, color 0.5s;
+  background-color: #131111 !important;
+  color: #d4d4d4 !important;
 
-    #app {
-      .codeblock {
-        background-color: #252526;
-        color: unset !important;
-      }
+  #app {
+    .codeblock {
+      background-color: #252526;
+      color: unset !important;
+    }
 
-      span:not(.code, .code *), p, h1, h2, h3, h4, h5, h6, a {
-        color: #d4d4d4 !important;
-      }
+    span:not(.code, .code *),
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+      color: #d4d4d4 !important;
+    }
 
-      #topbar {
-        background-color: #252526;
-        border-bottom: none !important;
-      }
+    #topbar {
+      // background-color: #252526;
+      // border-bottom: none !important;
+    }
 
-      .main-wrap {
-        filter: brightness(0.6);
-      }
+    .main-wrap {
     }
   }
+}
+
+/deep/ .ant-btn-primary {
+  background: transparent !important;
 }

@@ -2,11 +2,13 @@
   "en": {
     "docs": "Docs",
     "home": "Home",
+    "sponsor": "Sponsor",
     "lang": "Language"
   },
   "zh": {
     "docs": "文档",
     "home": "首页",
+    "sponsor": "赞助",
     "lang": "语言"
   }
 }

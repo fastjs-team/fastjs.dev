@@ -14,7 +14,7 @@
         <div class="content">
           <span id="fastjsAjax_show"></span>
           <span class="blank">====================</span>
-          <a-button class="btn" type="primary" @click="sendRequest">{{ lang.right.button }}</a-button>
+          <a-button class="btn" @click="sendRequest">{{ lang.right.button }}</a-button>
         </div>
       </div>
     </div>
@@ -65,8 +65,12 @@ new FastjsAjax("https://catfact.ninja/fact").get().then(res => {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 0 28vw;
+    padding: 6vh 22vw 0;
     transition: padding 0.5s;
+
+    > * {
+      width: 560px;
+    }
 
     .left {
       flex: 2;
@@ -94,7 +98,7 @@ new FastjsAjax("https://catfact.ninja/fact").get().then(res => {
 </style>
 
 <style lang="less" scoped>
-@media screen and (max-width: 1750px) {
+@media screen and (max-width: 1450px) {
   .bind {
     .flex {
       padding: 0;

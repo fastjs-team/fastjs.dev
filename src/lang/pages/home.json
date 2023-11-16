@@ -31,14 +31,14 @@
   },
   "zh": {
     "main": {
-      "title": "强大，简洁的javascript工具库",
+      "title": "携带梦想，再次起航",
       "download": "部署到项目",
       "downloadCopy": "已复制到剪贴板"
     },
     "bind": {
       "left": {
         "title": "FastjsDate",
-        "desc": "就像走路一样简单。"
+        "desc": "就好像AI自动帮你把String转成Date一样简单"
       },
       "right": {
         "button": "更换格式"
@@ -47,7 +47,7 @@
     "ajax": {
       "left": {
         "title": "FastjsAjax",
-        "desc": "这，就是Fast Ajax。"
+        "desc": "简单和多元化齐聚一体"
       },
       "right": {
         "button": "发送请求"

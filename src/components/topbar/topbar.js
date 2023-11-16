@@ -15,6 +15,10 @@ export default {
     {
       "name": "home",
       "link": "/"
+    },
+    {
+      "name": "sponsor",
+      "link": "/sponsor"
     }
   ],
   "right": [

@@ -14,7 +14,7 @@
         <div class="content">
           <span id="fastjsDate_show"></span>
           <span class="blank">====================</span>
-          <a-button class="btn" type="primary" @click="nextFormat">{{ lang.right.button }}</a-button>
+          <a-button class="btn" @click="nextFormat">{{ lang.right.button }}</a-button>
         </div>
       </div>
     </div>
@@ -77,8 +77,12 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 6vh 28vw 0;
+    padding: 6vh 22vw 0;
     transition: padding 0.5s;
+
+> * {
+  width: 560px;
+}
 
     .left {
       flex: 2;
@@ -106,7 +110,7 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
 </style>
 
 <style lang="less" scoped>
-@media screen and (max-width: 1750px) {
+@media screen and (max-width: 1450px) {
   .bind {
     .flex {
       padding: 6vh 0;
