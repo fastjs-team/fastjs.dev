@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: vite build
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
