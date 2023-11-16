@@ -58,14 +58,14 @@ export default {
 
 <style lang="less" scoped>
 .main-wrap {
-  height: auto;
+  height: 100vh;
   margin: 0;
   width: 100vw;
   display: block;
-  padding-bottom: 20vh;
   overflow-x: hidden;
   transition: 0.5s;
   position: relative;
+  padding-top: 20vh;
 }
 
 .transform {
@@ -138,7 +138,6 @@ export default {
       display: block;
       padding: .3rem .7rem;
       height: 30px;
-      // 内容靠左
       text-align: left;
 
       span {
