@@ -1,8 +1,8 @@
 ---
 name: "\U0001F41E Bug report"
-about: Report a bug with fastjs.cc
+about: Report a bug with fastjs main website
 title: 'Bug: '
-labels: bug
+labels: new
 assignees: ''
 
 ---
@@ -22,9 +22,6 @@ A clear and concise description of what you expected to happen.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
-
-**Playground**
-A code playground that can show your problem can let us solve more quickly.
 
 **Additional context**
 Add any other context about the problem here.
