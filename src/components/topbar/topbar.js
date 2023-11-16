@@ -1,7 +1,9 @@
 // check lang
 import cookie from "js-cookie";
+import config from "@/lang/config.json"
+
 const lang = cookie.get("language");
-const langList = require("../../lang/config.json").langList;
+let langList = config.langList;
 
 let unshift = "";
 switch (lang) {
