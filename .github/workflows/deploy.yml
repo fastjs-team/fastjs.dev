@@ -34,11 +34,7 @@ jobs:
         run: npm run build
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
+        uses: actions/upload-pages-artifact@v2
 
   Deploy:
     runs-on: ubuntu-latest
