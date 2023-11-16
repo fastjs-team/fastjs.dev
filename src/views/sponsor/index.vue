@@ -39,7 +39,7 @@ export default {
   name: "sponsor-index",
   data() {
     return {
-      lang: langSetup("pages/sponsor", "index"),
+      lang: langSetup("sponsor", "index"),
       selected_method:
         sponsor.find((s) => s.key === this.$route.href.split("/sponsor/")[1])?.name ||
         "Github Sponsor",
