@@ -17,6 +17,7 @@ export default function get(name, defaultValue) {
         home,
         sponsor,
         topbar,
+        config
     }
     index = langFiles[name]
     if (!index) throw new Error("Language file not found")
