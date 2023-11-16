@@ -33,6 +33,16 @@ jobs:
       - name: Pack
         run: npm run build
 
+      # mv dist to _site
+      - name: Ready to Upload
+        run: mv dist _site
+
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v2
 
