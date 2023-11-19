@@ -105,6 +105,7 @@ new FastjsAjax("https://catfact.ninja/fact").get().then(res => {
       display: block;
 
       > * {
+        width: 100%;
         display: flex;
         justify-content: center;
         padding: 0 0 6vh !important;

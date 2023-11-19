@@ -80,9 +80,9 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
     padding: 6vh 22vw 0;
     transition: padding 0.5s;
 
-> * {
-  width: 560px;
-}
+    > * {
+      width: 560px;
+    }
 
     .left {
       flex: 2;
@@ -117,6 +117,7 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
       display: block;
 
       > * {
+        width: 100%;
         display: flex;
         justify-content: center;
         padding: 0 0 6vh !important;
