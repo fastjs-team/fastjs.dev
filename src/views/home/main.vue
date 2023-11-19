@@ -10,13 +10,13 @@
         </span>
         <shake class="code shake" on="click" @click="codeCopy">
           <span style="color: #c8c8c8"> shell </span>
-          <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
+          <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px"/>
           <span style="color: #aa6e6a">npm</span>
           <span style="color: #dfbc67">i</span>
           <span style="color: #84d681">fastjs-next</span>
           <div class="right">
-            <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
-            <copy-outlined />
+            <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px"/>
+            <copy-outlined/>
           </div>
         </shake>
       </div>
@@ -26,10 +26,10 @@
 
 <script>
 import shake from "@/components/shake.vue";
-import { CopyOutlined } from "@ant-design/icons-vue";
-import { message } from "ant-design-vue";
+import {CopyOutlined} from "@ant-design/icons-vue";
+import {message} from "ant-design-vue";
 import langSetup from "@/lang/setup";
-import { copy } from "fastjs-next";
+import {copy} from "fastjs-next";
 
 export default {
   name: "main",
@@ -60,9 +60,11 @@ export default {
   opacity: 0;
   pointer-events: none;
   z-index: 1;
+
   &.show {
     opacity: 1;
   }
+
   &.hide {
     opacity: 0;
   }
@@ -76,21 +78,6 @@ export default {
     font-size: 14px;
   }
 }
-
-// .star::after,
-// .star::before {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     content: "\2726";
-//     font-size: 14px;
-// }
-
-// .star::after { /* The foreground star */
-//     background: white;
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-// }
 </style>
 
 <style lang="less" scoped>
@@ -103,22 +90,7 @@ export default {
   transition: 0.5s;
   position: relative;
   padding-top: 20vh;
-
-
 }
-
-// .transform {
-//   width: 100vw;
-//   height: 100%;
-//   position: absolute;
-//   z-index: -1;
-//   overflow: hidden;
-//   background: linear-gradient(-50deg, #42d392, #647eff, #ce3e75, #23a6d5, #23d5ab);
-//   transition: 0.1s;
-//   animation: background_transform 30s linear infinite;
-//   background-size: 500% 500%;
-// }
-
 
 // media 1400
 @media screen and (max-width: 1400px) {
@@ -127,18 +99,6 @@ export default {
     padding: 0 30px;
   }
 }
-
-// @keyframes background_transform {
-//   0% {
-//     background-position: 0 50%;
-//   }
-//   50% {
-//     background-position: 100% 50%;
-//   }
-//   to {
-//     background-position: 0 50%;
-//   }
-// }
 
 .main {
   width: 100%;
@@ -162,6 +122,11 @@ export default {
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
+    line-height: 80px;
+
+    background: linear-gradient(90deg, #b367df 0%, #84d681 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .npm-download {
