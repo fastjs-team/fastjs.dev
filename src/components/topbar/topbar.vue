@@ -4,44 +4,22 @@
       <div id="topbar-content">
         <div class="left">
           <span class="title">Fastjs</span>
-          <div class="item" v-for="item in list.left" :name="item.name">
-            <router-link :to="item.link" class="link router-link" v-if="!item.newPage">
-              {{ item.name }}
-            </router-link>
-            <a :href="item.link" target="_blank" class="link a-link" v-else>{{ item.name }}</a>
-          </div>
+          <topbar-item v-for="item in localizedList.left" :key="item.name" :item="item"/>
         </div>
         <div class="right">
-          <div
-            class="item"
-            v-for="item in list.right"
-            :class="{ drop: item.sub !== undefined }"
-          >
-            <a-dropdown v-if="item.sub !== undefined">
-              <a class="ant-dropdown-link" @click.prevent>
-                {{ item.name }}
-                <DownOutlined />
-              </a>
-              <template #overlay>
-                <a-menu>
-                  <a-menu-item v-for="sub in item.sub" :key="sub.name" @click="sub.do()">
-                    <span>{{ sub.name }}</span>
-                  </a-menu-item>
-                </a-menu>
-              </template>
-            </a-dropdown>
-            <router-link :to="item.link" class="link" v-else-if="!item.newPage">
-              {{ item.name }}
-            </router-link>
-            <a :href="item.link" target="_blank" class="link" v-else>{{ item.name }}</a>
-          </div>
+          <topbar-item
+              v-for="item in localizedList.right"
+              :key="item.name"
+              :item="item"
+              class="right-item"
+          />
           <a-space class="icon">
             <a
-              href="https://github.com/fastjs-team/fastjs-next/"
-              target="_blank"
-              style="color: black"
+                href="https://github.com/fastjs-team/fastjs-next/"
+                target="_blank"
+                style="color: black"
             >
-              <github-outlined style="color: white" />
+              <github-outlined style="color: white"/>
             </a>
           </a-space>
         </div>
@@ -52,36 +30,47 @@
 
 <script>
 import topbar from "./topbar.js";
-import { GithubOutlined, DownOutlined } from "@ant-design/icons-vue";
+import TopbarItem from "./topbarItem.vue";
+import {GithubOutlined, CaretDownFilled} from "@ant-design/icons-vue";
 import langSetup from "@/lang/setup";
-
-const lang = langSetup("topbar");
 
 export default {
   name: "topbar",
-  data() {
-    const list = {
-      left: topbar.left,
-      right: topbar.right.reverse(),
-    };
-    list.left.forEach((item) => {
-      item.name = lang[item.name];
-    });
-    list.right.forEach((item) => {
-      item.name = lang[item.name];
-    });
-    return {
-      list,
-    };
-  },
   components: {
     GithubOutlined,
-    DownOutlined,
+    CaretDownFilled,
+    TopbarItem,
+  },
+  data() {
+    return {
+      list: {
+        left: topbar.left,
+        right: topbar.right.reverse(),
+      },
+    };
+  },
+  computed: {
+    localizedList() {
+      const lang = langSetup("topbar");
+      const localizedList = {
+        left: [],
+        right: [],
+      };
+
+      for (const side in this.list) {
+        this.list[side].forEach((item) => {
+          const localizedItem = {...item, name: lang[item.name]};
+          localizedList[side].push(localizedItem);
+        });
+      }
+
+      return localizedList;
+    },
   },
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #topbar-box {
   position: fixed;
   top: 0;
@@ -97,12 +86,11 @@ export default {
     position: relative;
   }
 
-  #topbar-content {
+  #topbar-content {;
     display: flex;
     transition: opacity 0.5s, background 0.8s, ease 0.4s;
 
-    .left,
-    .right {
+    .left, .right {
       display: flex;
       align-items: center;
       width: 100%;
@@ -112,7 +100,7 @@ export default {
         color: white;
         display: inline-block;
         user-select: none;
-        margin-right: 20px;
+        margin-right: 2vw;
       }
 
       .item {
@@ -124,7 +112,7 @@ export default {
           font-size: 14px;
           color: white;
           height: 100%;
-          padding: 0 15px;
+          padding: 0 1vw;
           line-height: 50px;
           display: inline-block;
         }
@@ -161,15 +149,19 @@ export default {
     .right {
       justify-content: right;
     }
+  }
 
-    // .line {
-    //   background: #767676;
-    //   width: calc(100% - 20vw);
-    //   border-radius: 3px;
-    //   height: 1px;
-    //   position: absolute;
-    //   margin-top: 50px;
-    // }
+  .dropdown {
+    display: inline-block;
+  }
+}
+
+.ant-dropdown-menu {
+  background: transparent !important;
+  border: 1px solid #d4d4d4 !important;
+
+  > li span {
+    color: #d4d4d4 !important;
   }
 }
 </style>
