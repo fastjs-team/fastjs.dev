@@ -3,6 +3,7 @@
     <Main />
     <Date />
     <Ajax />
+    <Thanks />
     <Bottom />
   </div>
 </template>
@@ -12,10 +13,12 @@ import Main from "./main.vue";
 import Date from "@/views/home/date.vue";
 import Bottom from "@/views/home/bottom.vue";
 import Ajax from "@/views/home/ajax.vue";
+import Thanks from "@/views/home/thanks.vue";
 
 export default {
   name: "home",
   components: {
+    Thanks,
     Ajax,
     Bottom,
     Main,
