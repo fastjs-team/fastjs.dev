@@ -24,9 +24,12 @@ export default {
 
 .sponsors {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: center;
   align-items: center;
+
+  .title {
+    text-align: center;
+  }
 }
 </style>
