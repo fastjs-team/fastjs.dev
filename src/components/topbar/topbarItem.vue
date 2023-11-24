@@ -39,9 +39,6 @@ export default {
   },
   components: {
     CaretDownFilled,
-  },
-  created() {
-    console.log(this.item)
   }
 };
 </script>
