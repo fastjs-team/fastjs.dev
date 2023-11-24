@@ -32,7 +32,6 @@ import langSetup from "@/lang/setup";
 
 // get config.sponsor
 const config = langSetup("config");
-console.log(config);
 const sponsor = config.sponsor;
 
 export default {
@@ -126,7 +125,7 @@ export default {
       margin: 0 auto;
     }
 
-    /deep/ .ant-segmented {
+    :deep(.ant-segmented) {
       background: transparent;
       color: white;
       border: 1px solid white;
