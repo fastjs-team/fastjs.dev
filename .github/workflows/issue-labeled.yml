@@ -22,4 +22,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Thanks for reporting this issue. But we're unable to replicate your issue, if you are able to create a reproducer or add details to provide more context, please reply to this issue. **We will close this issue in 15 days if no further information is provided**.
+            Thanks for reporting this issue. But we're unable to replicate your issue, if you are able to create a reproducer or add details to provide more context, please reply to this issue.
+            
+            **We will close this issue in 15 days if no further information is provided**.
