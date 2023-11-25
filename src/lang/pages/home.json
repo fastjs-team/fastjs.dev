@@ -58,5 +58,35 @@
         "authorInfo": "由fastjs-team(dy-xiaodong2022)制作"
       }
     }
+  },
+  "ja": {
+    "main": {
+      "title": "夢をのせて再び船出",
+      "download": "プロジェクへトデプロイ",
+      "downloadCopy": "クリップボードにコピーされました"
+    },
+    "bind": {
+      "left": {
+        "title": "FastjsDate",
+        "desc": "AI が文字列を日付に自動的に変換するのと同じくらい簡単"
+      },
+      "right": {
+        "button": "フォーマット変更"
+      }
+    },
+    "ajax": {
+      "left": {
+        "title": "FastjsAjax",
+        "desc": "シンプルと多様化の融合"
+      },
+      "right": {
+        "button": "リクエスト送信"
+      }
+    },
+    "bottom": {
+      "data": {
+        "authorInfo": "dy-xiaodong2022 によって作成されました"
+      }
+    }
   }
 }
