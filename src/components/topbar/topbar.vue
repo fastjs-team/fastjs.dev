@@ -86,7 +86,7 @@ export default {
     position: relative;
   }
 
-  #topbar-content {;
+  #topbar-content {
     display: flex;
     transition: opacity 0.5s, background 0.8s, ease 0.4s;
 
