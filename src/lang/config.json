@@ -1,7 +1,8 @@
 {
   "langList": [
     "en",
-    "zh"
+    "zh",
+    "ja"
   ],
   "en": {
     "title": "Fastjs - Powerful javascript library",
@@ -26,6 +27,19 @@
       {
         "key": "afdian",
         "name": "爱发电"
+      }
+    ]
+  },
+  "ja": {
+    "title": "Fastjs - 強力かつ簡潔なフロントエンド ツール ライブラリ",
+    "sponsor": [
+      {
+        "key": "github",
+        "name": "Github Sponsor"
+      },
+      {
+        "key": "afdian",
+        "name": "Afdian"
       }
     ]
   }
