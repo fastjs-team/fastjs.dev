@@ -10,13 +10,13 @@
         </span>
         <shake class="code shake" on="click" @click="codeCopy">
           <span style="color: #c8c8c8"> shell </span>
-          <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px"/>
+          <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
           <span style="color: #aa6e6a">npm</span>
           <span style="color: #dfbc67">i</span>
           <span style="color: #84d681">fastjs-next</span>
           <div class="right">
-            <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px"/>
-            <copy-outlined/>
+            <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
+            <copy-outlined />
           </div>
         </shake>
       </div>
@@ -26,10 +26,10 @@
 
 <script>
 import shake from "@/components/shake.vue";
-import {CopyOutlined} from "@ant-design/icons-vue";
-import {message} from "ant-design-vue";
+import { CopyOutlined } from "@ant-design/icons-vue";
+import { message } from "ant-design-vue";
 import langSetup from "@/lang/setup";
-import {copy} from "fastjs-next";
+import { copy } from "fastjs-next";
 
 export default {
   name: "main",
@@ -52,7 +52,6 @@ export default {
 </script>
 
 <style lang="less">
-
 .star {
   position: fixed;
   border-radius: 50%;
@@ -109,7 +108,7 @@ export default {
     cursor: pointer;
   }
 
-  > * {
+  >* {
     width: 100%;
     text-align: center;
     display: inline-block;
@@ -139,7 +138,7 @@ export default {
 
     .code {
       margin: 1vh auto auto;
-      width: 240px;
+      width: 250px;
       border-radius: 8px;
       background: #2b2b2b;
       display: block;
@@ -156,7 +155,7 @@ export default {
         display: inline-block;
         float: right;
 
-        > * {
+        >* {
           color: #c8c8c8;
           padding: 0;
         }
