@@ -18,7 +18,7 @@
         :is="item.newPage ? 'a' : 'router-link'"
         :href="item.link"
         :to="item.link"
-        target="_blank"
+        :target="item.newPage ? '_blank' : ''"
         class="link"
     >
       {{ item.name }}
