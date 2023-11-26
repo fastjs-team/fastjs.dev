@@ -30,15 +30,13 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            console.log(github);
-            console.log(context);
-            const pr = github.event.pull_request;
-            const label = github.event.label;
+            const pr = context.payload.pull_request;
+            const label = context.payload.label;
             if (label.name === 'Resolution: Invalid') {
               github.rest.pulls.update({
                 pull_number: pr.number,
-                owner: github.context.repo.owner,
-                repo: github.context.repo.repo,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
                 state: 'closed'
               });
             }
