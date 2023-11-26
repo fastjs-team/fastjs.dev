@@ -6,7 +6,6 @@ on:
 
 permissions:
     contents: read
-    issues: write
     pull-requests: write
 
 jobs:
@@ -16,7 +15,7 @@ jobs:
       - name: Reply to Pull Request
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ github.event.number }}
           body: |
             We are happy to see you're contributing to fastjs, but we are unable to merge this pull request for now, because:
             - This pull request does not fix a bug.
