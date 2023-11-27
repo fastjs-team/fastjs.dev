@@ -41,3 +41,29 @@ jobs:
                 state: 'closed'
               });
             }
+
+  deploy-test:
+    runs-on: ubuntu-latest
+    if: "${{ github.event.label.name == 'Resolution: Deploy Test'}}"
+    steps:
+      - name: Reply to Pull Request
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            Your pull request sounds good, but we need to deploy this pull request to our test environment to make sure it works well.
+            
+            It will **automatically start**, please wait patiently.
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Test Environment
+        uses: afc163/surge-preview@v1
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN }}
+          dist: 'dist'
+          teardown: 'true'
+          build: |
+            npm install
+            npm run build
