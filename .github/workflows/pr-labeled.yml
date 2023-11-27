@@ -55,6 +55,9 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - name: Build
         run: |
@@ -65,16 +68,17 @@ jobs:
         id: deploy
         run: |
           export DEPLOY_DOMAIN=https://fastjs-website-preview-pr-${{ github.event.number }}.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          npx surge --project ./dist/ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Reply to Pull Request
+        if: ${{ !failure() }}
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.number }}
           body: |
             [Auto Deploy] Pull Request #${{ github.event.number }} --> Preview
             
-            The preview of this Pull Request has been successfully built and deployed to https://fastjs-website-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
+            The preview of this Pull Request has been successfully built and deployed to https://fastjs-website-preview-pr-${{ github.event.number }}.surge.sh
 
       - name: Reply to Pull Request - Failed
         if: ${{ failure() }}
@@ -87,4 +91,4 @@ jobs:
             We have encountered some problems when deploying your pull request, please check the log for details.
 
       - name: Preview URL Log
-        run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
+        run: echo "url => ${{ steps.deploy.outputs.url }}"
