@@ -65,3 +65,6 @@ jobs:
           build: |
             npm install
             npm run build
+
+      - name: Get Preview URL
+        run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
