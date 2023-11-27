@@ -42,7 +42,7 @@ jobs:
 
   deploy-test:
     runs-on: ubuntu-latest
-    if: "${{ github.event.label.name == 'Resolution: Need Deploy'}}"
+    if: "${{ github.event.label.name == 'Status: Need Deploy'}}"
     steps:
       - name: Reply to Pull Request
         uses: peter-evans/create-or-update-comment@v3
