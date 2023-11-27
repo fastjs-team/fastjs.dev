@@ -56,15 +56,35 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Deploy to Test Environment
-        uses: afc163/surge-preview@v1
-        with:
-          surge_token: ${{ secrets.SURGE_TOKEN }}
-          dist: 'dist'
-          teardown: 'true'
-          build: |
-            npm install
-            npm run build
+      - name: Build
+        run: |
+          npm install
+          npm run build
 
-      - name: Get Preview URL
+      - name: upload surge service
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://fastjs-website-preview-pr-${{ github.event.number }}.surge.sh
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Reply to Pull Request
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            [Auto Deploy] Pull Request #${{ github.event.number }} --> Preview
+            
+            The preview of this Pull Request has been successfully built and deployed to https://fastjs-website-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
+
+      - name: Reply to Pull Request - Failed
+        if: ${{ failure() }}
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            [Auto Deploy] Pull Request #${{ github.event.number }} -x-> Preview
+            
+            We have encountered some problems when deploying your pull request, please check the log for details.
+
+      - name: Preview URL Log
         run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
