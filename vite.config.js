@@ -10,8 +10,13 @@ export default {
     mkcert()
   ],
   "base": "./",
-  "build": {
-    "outDir": "./dist/"
+  build: {
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        404: './404.html'
+      }
+    }
   },
   "css": {
     "preprocessorOptions": {
