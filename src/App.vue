@@ -34,6 +34,8 @@ export default {
       const redirect = sessionStorage.redirect
       delete sessionStorage.redirect
       this.$router.push(redirect)
+    } else {
+      this.$router.push("/")
     }
   },
   mounted() {
