@@ -12,10 +12,10 @@ permissions:
 jobs:
   invalid:
     runs-on: ubuntu-latest
+    if: "${{ github.event.label.name == 'Resolution: Invalid'}}"
     steps:
       - name: Reply to Pull Request
         uses: peter-evans/create-or-update-comment@v3
-        if: "${{ github.event.label.name == 'Resolution: Invalid'}}"
         with:
           issue-number: ${{ github.event.number }}
           body: |
@@ -33,18 +33,16 @@ jobs:
           script: |
             const pr = context.payload.pull_request;
             const label = context.payload.label;
-            if (label.name === 'Resolution: Invalid') {
-              github.rest.pulls.update({
-                pull_number: pr.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                state: 'closed'
-              });
-            }
+            github.rest.pulls.update({
+              pull_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });
 
   deploy-test:
     runs-on: ubuntu-latest
-    if: "${{ github.event.label.name == 'Resolution: Deploy Test'}}"
+    if: "${{ github.event.label.name == 'Resolution: Need Deploy'}}"
     steps:
       - name: Reply to Pull Request
         uses: peter-evans/create-or-update-comment@v3
