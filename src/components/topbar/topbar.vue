@@ -3,7 +3,9 @@
     <div id="topbar">
       <div id="topbar-content">
         <div class="left">
-          <span class="title">Fastjs</span>
+          <router-link to="/">
+            <img src="/icon.svg" class="icon" alt="logo" width="30" height="30"/>
+          </router-link>
           <topbar-item v-for="item in localizedList.left" :key="item.name" :item="item"/>
         </div>
         <div class="right">
@@ -95,11 +97,9 @@ export default {
       align-items: center;
       width: 100%;
 
-      > .title {
-        font-size: 16px;
-        color: white;
-        display: inline-block;
+      > .icon {
         user-select: none;
+        cursor: pointer;
         margin-right: 2vw;
       }
 
