@@ -16,7 +16,8 @@ export default {
   "left": [
     {
       "name": "home",
-      "link": "/"
+      "link": "/",
+      canHide: true
     },
     {
       "name": "sponsor",

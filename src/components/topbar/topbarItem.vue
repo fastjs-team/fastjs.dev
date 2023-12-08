@@ -1,5 +1,5 @@
 <template>
-  <div class="item" :class="{ drop: item.sub !== undefined }">
+  <div class="item" :class="{ drop: item.sub !== undefined, canHide: item.canHide }">
     <a-dropdown v-if="item.sub !== undefined" class="dropdown">
       <a class="ant-dropdown-link" style="font-size: 14px" @click.prevent>
         {{ item.name }}

@@ -95,24 +95,19 @@ export default {
     .left, .right {
       display: flex;
       align-items: center;
-      width: 100%;
 
-      > .icon {
-        user-select: none;
+      .icon {
         cursor: pointer;
-        margin-right: 2vw;
       }
 
       .item {
         height: 100%;
-        margin-left: 0.4vw;
         cursor: pointer;
 
         .link {
           font-size: 14px;
           color: white;
           height: 100%;
-          padding: 0 1vw;
           line-height: 50px;
           display: inline-block;
         }
@@ -137,7 +132,7 @@ export default {
       .icon {
         font-size: 20px;
         color: white;
-        margin-left: 6px;
+        margin-left: 16px;
 
         .anticon {
           padding: 4px;
@@ -146,8 +141,17 @@ export default {
       }
     }
 
+    .left > .item {
+      margin-left: 20px;
+    }
+
     .right {
       justify-content: right;
+      margin-left: auto;
+
+      > .right-item {
+        margin-left: 20px;
+      }
     }
   }
 
@@ -162,6 +166,13 @@ export default {
 
   > li span {
     color: #d4d4d4 !important;
+  }
+}
+
+// width smaller than 768px
+@media screen and (max-width: 768px) {
+  .canHide {
+    display: none;
   }
 }
 </style>
