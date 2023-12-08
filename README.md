@@ -1,21 +1,17 @@
-# fastjs.cc
+# fastjs.dev
 
-[//]: # (## Important Change)
-
-[//]: # ()
-[//]: # (This repo name has been changed from `fastjs.cc` to `website`.)
-
-[//]: # (For some reason, the repo name won't be change for now.)
+> [!IMPORTANT]
+> Our website has been moved to https://fastjs.dev/
 
 This is the official website of [Fastjs](https://github.com/fastjs-team/core).
 
-For the documentation, please visit [docs repo](https://github.com/fastjs-team/docs) or [here](https://docs.fastjs.cc/).
+For the documentation, please visit [docs repo](https://github.com/fastjs-team/docs) or [here](https://docs.fastjs.dev/).
 
 ## Auto Deploy
 
-This repo is auto deployed to [fastjs.cc](https://fastjs.cc) by Github Action and Github Pages.
+This repo is auto deployed to [fastjs.cc](https://fastjs.dev) by Github Action and Github Pages.
 
-Your pull request or commit won't immediately be deployed to [fastjs.cc](https://fastjs.cc), please wait for a while after your pull request is merged.
+Your pull request or commit won't immediately be deployed to [fastjs.cc](https://fastjs.dev), please wait for a while after your pull request is merged.
 
 ## Info
 
@@ -30,6 +26,6 @@ Your pull request or commit won't immediately be deployed to [fastjs.cc](https:/
 
 ## Contributors
 
-<a href="https://github.com/fastjs-team/fastjs.cc/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=fastjs-team/fastjs.cc" />
+<a href="https://github.com/fastjs-team/fastjs.dev/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fastjs-team/fastjs.dev" />
 </a>
