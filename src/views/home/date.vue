@@ -45,9 +45,9 @@ console.log(date.string("<Now time: >Y-M-D H:m:s.S a"));
 // More functions
 console.log(date.parse("Y-M-D h:m:s", "2022-10-21 19:20:46")); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
 console.log(date.parseDate("Y-M-D h:m:s", new Date(...))); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
-console.log(date.parseTimestamp("Y-M-D h:m:s", 1666442446)); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
+console.log(date.parseTimestamp("Y-M-D h:m:s", 1666351246)); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
 console.log(date.reformat("2022-10-21 19:20:46", "Y-M-D h:m:s", "h:m:s Y-M-D")); // 19:20:46 2022-10-21
-console.log(date.date("Y-M-D h:m:s"), date.format); // 2021-10-21 19:20:46 Y-M-D h:m:s`
+console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
     }
   },
   mounted() {
