@@ -3,7 +3,7 @@
     "main": {
       "title": "Fly again, with Dream.",
       "download": "Deploy npm version to your project",
-      "downloadCopy": "Download command copy to your clipboard"
+      "downloadCopy": "Copied to clipboard"
     },
     "bind": {
       "left": {
@@ -14,10 +14,10 @@
         "button": "Change format"
       }
     },
-    "ajax": {
+    "request": {
       "left": {
-        "title": "FastjsAjax",
-        "desc": "This, is Fast Ajax."
+        "title": "FastjsRequest",
+        "desc": "This, is Fast Request."
       },
       "right": {
         "button": "Send request"
@@ -25,7 +25,7 @@
     },
     "bottom": {
       "data": {
-        "authorInfo": "Copyright © 2023-2024 dy-xiaodong2022"
+        "authorInfo": "Copyright © 2022-2024 dy-xiaodong2022"
       }
     }
   },
@@ -44,9 +44,9 @@
         "button": "更换格式"
       }
     },
-    "ajax": {
+    "request": {
       "left": {
-        "title": "FastjsAjax",
+        "title": "FastjsRequest",
         "desc": "简单和多元化齐聚一体"
       },
       "right": {
@@ -74,9 +74,9 @@
         "button": "フォーマット変更"
       }
     },
-    "ajax": {
+    "request": {
       "left": {
-        "title": "FastjsAjax",
+        "title": "FastjsRequest",
         "desc": "シンプルと多様化の融合"
       },
       "right": {
