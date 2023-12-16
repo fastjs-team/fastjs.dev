@@ -5,7 +5,7 @@
         {{ lang.title }}
       </span>
       <div class="npm-download">
-        <span>
+        <span class="mono">
           {{ lang.download }}
         </span>
         <shake class="code shake" on="click" @click="codeCopy">
@@ -13,7 +13,7 @@
           <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
           <span style="color: #aa6e6a">npm</span>
           <span style="color: #dfbc67">i</span>
-          <span style="color: #84d681">fastjs-next</span>
+          <span style="color: #84d681; padding-right: 6px">@fastjs/core</span>
           <div class="right">
             <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
             <copy-outlined />
@@ -29,7 +29,7 @@ import shake from "@/components/shake.vue";
 import { CopyOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import langSetup from "@/lang/setup";
-import { copy } from "fastjs-next";
+import { copy } from "@/fastjs.esm-bundler.js";
 
 export default {
   name: "main",
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     codeCopy() {
-      copy("npm i fastjs-next");
+      copy("npm i @fastjs/core");
       message.success(this.lang.downloadCopy);
     },
   },
@@ -83,7 +83,7 @@ export default {
 .main-wrap {
   height: 100vh;
   margin: 0;
-  width: 100vw;
+  width: 100%;
   display: block;
   overflow-x: hidden;
   transition: 0.5s;
@@ -103,7 +103,9 @@ export default {
   width: 100%;
   height: auto;
   color: white;
-
+  display: grid;
+  // every line only one element
+  grid-template-rows: repeat(1, 1fr);
   .shake {
     cursor: pointer;
   }
@@ -138,10 +140,9 @@ export default {
 
     .code {
       margin: 1vh auto auto;
-      width: 250px;
       border-radius: 8px;
       background: #2b2b2b;
-      display: block;
+      display: inline-block;
       padding: 5px 10px;
       line-height: 20px;
       text-align: left;

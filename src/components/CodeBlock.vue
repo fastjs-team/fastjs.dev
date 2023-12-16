@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {copy} from "fastjs-next";
+import {copy} from "@/fastjs.esm-bundler.js";
 import {CopyOutlined} from "@ant-design/icons-vue";
 // highlight.js with white theme
 import hljs from "highlight.js";
@@ -114,18 +114,23 @@ export default {
 
   .copy {
     position: absolute;
-    top: 6px;
-    right: 6px;
+    top: 8px;
+    right: 8px;
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.4s;
     background: #efefef;
     border: 1px solid #c8c8c8;
     border-radius: 4px;
+    height: 28px;
+    width: 28px;
+    display: grid;
+
 
     .icon {
       display: block;
-      margin: 4px;
+      margin: auto;
+      font-size: 14px;
     }
   }
 
