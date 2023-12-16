@@ -17,7 +17,7 @@
           />
           <a-space class="icon">
             <a
-                href="https://github.com/fastjs-team/fastjs-next/"
+                href="https://github.com/fastjs-team/core/"
                 target="_blank"
                 style="color: black"
             >

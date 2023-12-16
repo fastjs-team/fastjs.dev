@@ -2,7 +2,7 @@
   <div id="home">
     <Main />
     <Date />
-    <Ajax />
+    <Request />
     <Thanks />
     <Bottom />
   </div>
@@ -12,14 +12,14 @@
 import Main from "./main.vue";
 import Date from "@/views/home/date.vue";
 import Bottom from "@/views/home/bottom.vue";
-import Ajax from "@/views/home/ajax.vue";
+import Request from "@/views/home/request.vue";
 import Thanks from "@/views/home/thanks.vue";
 
 export default {
   name: "home",
   components: {
     Thanks,
-    Ajax,
+    Request,
     Bottom,
     Main,
     Date

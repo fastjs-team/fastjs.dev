@@ -77,7 +77,7 @@ export default {
 #sponsor {
   height: 100vh;
   margin: 0;
-  width: 100vw;
+  width: 100%;
   display: block;
   overflow-x: hidden;
   transition: 0.5s;
