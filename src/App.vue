@@ -1,9 +1,9 @@
 <template>
-  <topbar />
+  <topbar/>
   <div class="background"></div>
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
-      <component :is="Component" />
+      <component :is="Component"/>
     </transition>
   </router-view>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import Topbar from "@/components/topbar/topbar.vue";
 import langSetup from '@/lang/setup'
-import { FastjsDom, rand, selector } from "fastjs-next";
+import {dom, rand} from "@/fastjs.esm-bundler.js";
 
 const lang = langSetup("config")
 
@@ -32,23 +32,24 @@ export default {
   mounted() {
     // add star
     function newStar() {
-      const star = new FastjsDom("span").set("className", "star");
-      star.css({
-        left: rand(0, 100) + "vw",
-        top: rand(0, 100) + "vh",
-        transform: `scale(${rand(0, 150) / 100 + 0.5})`,
-      });
-      star.appendTo(selector(".background").el());
-      setTimeout(() => {
-        star.el().classList.add("show")
-        setTimeout(() => {
-          star.el().classList.add("hide")
-          setTimeout(() => {
-            star.remove();
-          }, 1000);
-        }, rand(3000, 15000))
-      }, 10);
-      setTimeout(newStar, rand(100, 2000));
+      dom
+          .newEl("span", {
+            class: "star",
+            css: {
+              left: rand(0, 100) + "vw",
+              top: rand(0, 100) + "vh",
+              transform: `scale(${rand(0, 150) / 100 + 0.5})`,
+            },
+          })
+          .push(dom.select(".background")).el
+          .then((star) => {
+            star.addClass("show").then(() => {
+              star.addClass("hide").then(() => {
+                star.remove();
+              }, 1000);
+            }, rand(3000, 15000))
+          }, 10)
+          .then(newStar, rand(100, 2000))
     }
     newStar();
   },
