@@ -12,7 +12,7 @@
       </div>
       <div class="right">
         <div class="content">
-          <span id="fastjsAjax_show"></span>
+          <span id="fastjsRequest_show"></span>
           <span class="blank">====================</span>
           <a-button class="btn" @click="sendRequest">{{ lang.right.button }}</a-button>
         </div>
@@ -23,30 +23,25 @@
 
 <script>
 import langSetup from "@/lang/setup";
-import {selecter, FastjsAjax} from "fastjs-next";
+import {dom, request} from "@/fastjs.esm-bundler.js";
 import CodeBlock from "@/components/CodeBlock.vue";
 import {message} from "ant-design-vue";
 
 export default {
-  name: "bind",
+  name: "request",
   data() {
     return {
-      lang: langSetup("home", "ajax"),
-      code1: `import { FastjsAjax } from "fastjs-next";
-import { message } from "ant-design-vue";
+      lang: langSetup("home", "request"),
+      code1: `import { request } from "@fastjs/core";
 
-const msg = message.loading("Waiting response...", 0);
-new FastjsAjax("https://catfact.ninja/fact").get().then(res => {
-  console.log(res.fact);
-  msg();
-})`
+request("https://catfact.ninja/fact").then(res => msg(res.data.fact));`
     }
   },
   methods: {
     sendRequest() {
       const msg = message.loading("Waiting response...", 0);
-      new FastjsAjax("https://catfact.ninja/fact").get().then(res => {
-        selecter("#fastjsAjax_show").html(res.fact);
+      request.get("https://catfact.ninja/fact").then(res => {
+        dom.select("#fastjsRequest_show").html(res.data.fact);
         msg();
       })
     }
@@ -59,7 +54,7 @@ new FastjsAjax("https://catfact.ninja/fact").get().then(res => {
 
 <style lang="less" scoped>
 .bind {
-  width: 100vw;
+  width: 100%;
 
   .flex {
     margin: 0 auto;
