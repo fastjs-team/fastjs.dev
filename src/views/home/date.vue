@@ -23,10 +23,10 @@
 
 <script>
 import langSetup from "@/lang/setup";
-import {selecter, FastjsDate} from "fastjs-next";
+import {dom, date} from "@/fastjs.esm-bundler.js";
 import CodeBlock from "@/components/CodeBlock.vue";
 
-const date = new FastjsDate("Y-M-D h:m:s");
+// const date = new date("Y-M-D h:m:s");
 
 export default {
   name: "bind",
@@ -34,14 +34,20 @@ export default {
     return {
       format: 0,
       autoUpdateDate: setInterval(this.updateTime, 1000),
-      formatList: ["Y-M-D h:m:s", "Y-M-D", "H:m:s A", "<Now time: >H:m:s A"],
+      formatList: ["Y-M-D h:m:s", "D/M/Y h:m:s A", "<Now time: >Y-M-D H:m:s.S a"],
       lang: langSetup("home", "bind"),
-      code1: `import { FastjsDate } from "fastjs-next";
+      code1: `import { date } from "@fastjs/core";
 
-console.log(new FastjsDate("Y-M-D h:m:s").toString());
-console.log(new FastjsDate("Y-M-D").toString());
-console.log(new FastjsDate("H:m:s A").toString());
-console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
+console.log(date.string("Y-M-D h:m:s"));
+console.log(date.string("D/M/Y h:m:s A"));
+console.log(date.string("<Now time: >Y-M-D H:m:s.S a"));
+
+// More functions
+console.log(date.parse("Y-M-D h:m:s", "2022-10-21 19:20:46")); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
+console.log(date.parseDate("Y-M-D h:m:s", new Date(...))); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
+console.log(date.parseTimestamp("Y-M-D h:m:s", 1666442446)); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
+console.log(date.reformat("2022-10-21 19:20:46", "Y-M-D h:m:s", "h:m:s Y-M-D")); // 19:20:46 2022-10-21
+console.log(date.date("Y-M-D h:m:s"), date.format); // 2021-10-21 19:20:46 Y-M-D h:m:s`
     }
   },
   mounted() {
@@ -57,7 +63,7 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
       this.updateTime();
     },
     updateTime() {
-      selecter("#fastjsDate_show").html(date.toString());
+      dom.select("#fastjsDate_show").html(date.string(this.formatList[this.format]));
     }
   },
   beforeUnmount() {
@@ -71,7 +77,7 @@ console.log(new FastjsDate("<Now time: >H:m:s A").toString());`
 
 <style lang="less" scoped>
 .bind {
-  width: 100vw;
+  width: 100%;
 
   .flex {
     margin: 0 auto;
