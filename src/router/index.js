@@ -24,6 +24,10 @@ const routes = [
         component: () => import('../views/sponsor/afdian.vue')
       }
     ]
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/"
   }
 ]
 
