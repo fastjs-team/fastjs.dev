@@ -3,8 +3,8 @@
     <div class="link">
       <a href="https://github.com/fastjs-team/core" target="_blank" class="github">Github</a>
       <a href="https://github.com/fastjs-team/" target="_blank" class="docs">Team</a>
-      <a href="https://docs.fastjs.cc/" target="_blank" class="docs">Docs</a>
-      <a href="https://docs.fastjs.cc/contribute/sponsor.html" target="_blank" class="support">Support</a>
+      <a href="https://docs.fastjs.dev/" target="_blank" class="docs">Docs</a>
+      <a href="https://docs.fastjs.dev/contribute/sponsor.html" target="_blank" class="support">Support</a>
     </div>
     <div class="data">
       <a href="https://github.com/dy-xiaodong2022" target="_blank" class="authorInfo">{{ lang.data.authorInfo }}</a>

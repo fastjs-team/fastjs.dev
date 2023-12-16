@@ -9,9 +9,9 @@ For the documentation, please visit [docs repo](https://github.com/fastjs-team/d
 
 ## Auto Deploy
 
-This repo is auto deployed to [fastjs.cc](https://fastjs.dev) by Github Action and Github Pages.
+This repo is auto deployed to [fastjs.dev](https://fastjs.dev) by Github Action and Github Pages.
 
-Your pull request or commit won't immediately be deployed to [fastjs.cc](https://fastjs.dev), please wait for a while after your pull request is merged.
+Your pull request or commit won't immediately be deployed to [fastjs.dev](https://fastjs.dev), please wait for a while after your pull request is merged.
 
 ## Info
 

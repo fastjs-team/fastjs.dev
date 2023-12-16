@@ -27,7 +27,7 @@ export default {
   "right": [
     {
       "name": "docs",
-      "link": `https://${unshift}docs.fastjs.cc/`,
+      "link": `https://${unshift}docs.fastjs.dev/`,
       "newPage": true
     },
     {
