@@ -34,7 +34,7 @@ export default {
       lang: langSetup("home", "request"),
       code1: `import { request } from "@fastjs/core";
 
-request("https://catfact.ninja/fact").then(res => msg(res.data.fact));`
+request.get("https://catfact.ninja/fact").then(res => msg(res.data.fact));`
     }
   },
   methods: {
