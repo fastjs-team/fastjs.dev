@@ -13,7 +13,7 @@
           <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
           <span style="color: #aa6e6a">npm</span>
           <span style="color: #dfbc67">i</span>
-          <span style="color: #84d681; padding-right: 6px">@fastjs/core</span>
+          <span style="color: #84d681; padding-right: 6px">jsfast</span>
           <div class="right">
             <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
             <copy-outlined />
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     codeCopy() {
-      copy("npm i @fastjs/core");
+      copy("npm i jsfast");
       message.success(this.lang.downloadCopy);
     },
   },

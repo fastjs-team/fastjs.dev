@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       lang: langSetup("home", "request"),
-      code1: `import { request } from "@fastjs/core";
+      code1: `import { request } from "jsfast";
 
 request.get("https://catfact.ninja/fact").then(res => msg(res.data.fact));`
     }

@@ -36,7 +36,7 @@ export default {
       autoUpdateDate: setInterval(this.updateTime, 1000),
       formatList: ["Y-M-D h:m:s", "D/M/Y h:m:s A", "<Now time: >Y-M-D H:m:s.S a"],
       lang: langSetup("home", "bind"),
-      code1: `import { date } from "@fastjs/core";
+      code1: `import { date } from "jsfast";
 
 console.log(date.string("Y-M-D h:m:s"));
 console.log(date.string("D/M/Y h:m:s A"));
