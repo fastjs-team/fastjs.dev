@@ -2,13 +2,13 @@
   <div id="topbar-box">
     <div id="topbar">
       <div id="topbar-content">
-        <div class="left">
+        <div class="container left">
           <router-link to="/">
             <img src="/icon.svg" class="icon" alt="logo" width="30" height="30"/>
           </router-link>
           <topbar-item v-for="item in localizedList.left" :key="item.name" :item="item"/>
         </div>
-        <div class="right">
+        <div class="container right">
           <topbar-item
               v-for="item in localizedList.right"
               :key="item.name"
@@ -82,7 +82,6 @@ export default {
   height: 50px;
 
   #topbar {
-    border-bottom: 1px solid #767676;
     margin: 0 10vw;
     padding: 0 20px;
     position: relative;
@@ -92,44 +91,12 @@ export default {
     display: flex;
     transition: opacity 0.5s, background 0.8s, ease 0.4s;
 
-    .left, .right {
+    .container {
       display: flex;
       align-items: center;
 
       .icon {
         cursor: pointer;
-      }
-
-      .item {
-        height: 100%;
-        cursor: pointer;
-
-        .link {
-          font-size: 14px;
-          color: white;
-          height: 100%;
-          line-height: 50px;
-          display: inline-block;
-        }
-
-        &.drop {
-          .bar {
-            display: none;
-          }
-
-          a {
-            height: 100%;
-            line-height: 50px;
-          }
-        }
-
-        &:hover > .bar {
-          height: 5px;
-          margin-top: -4px;
-        }
-      }
-
-      .icon {
         font-size: 20px;
         color: white;
         margin-left: 16px;
