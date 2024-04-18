@@ -11,7 +11,7 @@
 <script>
 import Topbar from "@/components/topbar/topbar.vue";
 import langSetup from '@/lang/setup'
-import {dom, rand} from "@/fastjs.esm-bundler.js";
+import {dom, rand} from "jsfast";
 
 const lang = langSetup("config")
 

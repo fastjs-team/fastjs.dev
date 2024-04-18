@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {copy} from "@/fastjs.esm-bundler.js";
+import {copy} from "jsfast";
 import {CopyOutlined} from "@ant-design/icons-vue";
 // highlight.js with white theme
 import hljs from "highlight.js";

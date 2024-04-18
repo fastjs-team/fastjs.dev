@@ -29,7 +29,7 @@ import shake from "@/components/shake.vue";
 import { CopyOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import langSetup from "@/lang/setup";
-import { copy } from "@/fastjs.esm-bundler.js";
+import { copy } from "jsfast";
 
 export default {
   name: "main",

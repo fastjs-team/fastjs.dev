@@ -23,7 +23,7 @@
 
 <script>
 import langSetup from "@/lang/setup";
-import {dom, request} from "@/fastjs.esm-bundler.js";
+import {dom, request} from "jsfast";
 import CodeBlock from "@/components/CodeBlock.vue";
 import {message} from "ant-design-vue";
 
@@ -34,14 +34,14 @@ export default {
       lang: langSetup("home", "request"),
       code1: `import { request } from "jsfast";
 
-request.get("https://catfact.ninja/fact").then(res => msg(res.data.fact));`
+request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
     }
   },
   methods: {
     sendRequest() {
       const msg = message.loading("Waiting response...", 0);
-      request.get("https://catfact.ninja/fact").then(res => {
-        dom.select("#fastjsRequest_show").html(res.data.fact);
+      request.get("https://catfact.ninja/fact").then(data => {
+        dom.select("#fastjsRequest_show").html(data.fact);
         msg();
       })
     }
