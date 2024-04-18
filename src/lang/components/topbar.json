@@ -3,12 +3,14 @@
     "docs": "Docs",
     "home": "Home",
     "sponsor": "Sponsor",
+    "playground": "Playground",
     "lang": "Language"
   },
   "zh": {
     "docs": "文档",
     "home": "首页",
     "sponsor": "赞助",
+    "playground": "演练场",
     "lang": "语言"
   },
   "ja": {

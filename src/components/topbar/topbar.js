@@ -22,6 +22,11 @@ export default {
     {
       "name": "sponsor",
       "link": "/sponsor"
+    },
+    {
+      "name": "playground",
+      "link": "https://stackblitz.com/edit/fastjs-playground?file=src%2Fmain.ts",
+      "newPage": true
     }
   ],
   "right": [
