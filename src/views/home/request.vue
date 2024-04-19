@@ -23,9 +23,9 @@
 
 <script>
 import langSetup from "@/lang/setup";
-import {dom, request} from "jsfast";
+import { dom, request } from "jsfast";
 import CodeBlock from "@/components/code.vue";
-import {message} from "ant-design-vue";
+import { message } from "ant-design-vue";
 
 export default {
   name: "request",
@@ -63,7 +63,7 @@ request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
     padding: 6vh 22vw 0;
     transition: padding 0.5s;
 
-    > * {
+    >* {
       width: 560px;
     }
 
@@ -85,7 +85,7 @@ request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
       padding-left: 20px;
     }
 
-    > * {
+    >* {
       padding-bottom: 6vh;
     }
   }
@@ -99,7 +99,7 @@ request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
       padding: 0;
       display: block;
 
-      > * {
+      >* {
         width: 100%;
         display: flex;
         justify-content: center;
