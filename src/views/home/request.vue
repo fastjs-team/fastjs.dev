@@ -24,7 +24,7 @@
 <script>
 import langSetup from "@/lang/setup";
 import {dom, request} from "jsfast";
-import CodeBlock from "@/components/CodeBlock.vue";
+import CodeBlock from "@/components/code.vue";
 import {message} from "ant-design-vue";
 
 export default {

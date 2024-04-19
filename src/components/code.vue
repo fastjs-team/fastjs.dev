@@ -37,6 +37,7 @@ export default {
       .replace(/^\s+|\s+$/g, "")
       .replace(/  /g, "&nbsp;&nbsp;")
       .split("\n");
+  
     return {
       code,
       codeText

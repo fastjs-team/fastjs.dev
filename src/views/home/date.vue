@@ -24,7 +24,7 @@
 <script>
 import langSetup from "@/lang/setup";
 import {dom, date} from "jsfast";
-import CodeBlock from "@/components/CodeBlock.vue";
+import CodeBlock from "@/components/code.vue";
 
 // const date = new date("Y-M-D h:m:s");
 
