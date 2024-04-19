@@ -35,10 +35,12 @@ export default {
   border-top: 1px solid #e5e5e5;
   color: #999;
 
-  div > * {
+  div>* {
     margin-right: 20px;
 
-    &:link, &:visited, & {
+    &:link,
+    &:visited,
+    & {
       color: unset;
     }
 
