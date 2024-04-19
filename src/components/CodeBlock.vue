@@ -3,7 +3,7 @@
     <div class="numblock">
       <div class="num" v-for="key in code.length">
         <span class="lineNum">{{ key }}</span>
-        <a-divider class="lineDivider" type="vertical"/>
+        <a-divider class="lineDivider" type="vertical" />
       </div>
     </div>
     <div class="scroll">
@@ -13,34 +13,30 @@
       </div>
     </div>
     <div class="copy" @click="copy">
-      <copy-outlined class="icon"/>
+      <copy-outlined class="icon" />
     </div>
   </div>
 </template>
 
 <script>
-import {copy} from "jsfast";
-import {CopyOutlined} from "@ant-design/icons-vue";
-// highlight.js with white theme
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-light.css";
-import {message} from "ant-design-vue";
+import { message } from "ant-design-vue";
+import { copy } from "jsfast";
+
+import { CopyOutlined } from "@ant-design/icons-vue";
 
 export default {
   name: "CodeBlock",
   data() {
-    // get slot content
     let code = this.$slots.default()[0].children
     let codeText = code;
-    // set language
-    hljs.configure({languages: [this.lang]});
-    code = hljs.highlightAuto(code).value;
-    // clear left right blank
-    code = code.replace(/^\s+|\s+$/g, "");
-    // change 2 blank to &nbsp;&nbsp;
-    code = code.replaceAll("  ", "&nbsp;&nbsp;");
-    // split line
-    code = code.split("\n");
+
+    hljs.configure({ languages: [this.lang] });
+    code = hljs.highlight(this.lang, code).value
+      .replace(/^\s+|\s+$/g, "")
+      .replace(/  /g, "&nbsp;&nbsp;")
+      .split("\n");
     return {
       code,
       codeText
@@ -134,7 +130,7 @@ export default {
     }
   }
 
-  &:hover > .copy {
+  &:hover>.copy {
     opacity: 1;
   }
 }
