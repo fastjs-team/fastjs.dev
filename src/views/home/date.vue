@@ -23,7 +23,7 @@
 
 <script>
 import langSetup from "@/lang/setup";
-import {dom, date} from "jsfast";
+import { dom, date } from "jsfast";
 import CodeBlock from "@/components/code.vue";
 
 // const date = new date("Y-M-D h:m:s");
@@ -86,7 +86,7 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
     padding: 6vh 22vw 0;
     transition: padding 0.5s;
 
-    > * {
+    >* {
       width: 560px;
     }
 
@@ -108,7 +108,7 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
       padding-left: 20px;
     }
 
-    > * {
+    >* {
       padding-bottom: 6vh;
     }
   }
@@ -122,7 +122,7 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
       padding: 6vh 0;
       display: block;
 
-      > * {
+      >* {
         width: 100%;
         display: flex;
         justify-content: center;
