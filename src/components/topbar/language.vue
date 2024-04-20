@@ -32,7 +32,7 @@ export default {
       .addEvent("mouseleave", () => {
         menu.setStyle("height", "0")
       })
-      .setStyle("height", "0");
+    menu.setStyle("height", "0")
   },
   props: {
     title: {
