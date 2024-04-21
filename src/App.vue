@@ -41,7 +41,7 @@ export default {
               transform: `scale(${rand(0, 150) / 100 + 0.5})`,
             },
           })
-          .push(dom.select(".background")).el
+          .push(dom.select(".background"), "lastElementChild").el
           .then((star) => {
             star.addClass("show").then(() => {
               star.addClass("hide").then(() => {
