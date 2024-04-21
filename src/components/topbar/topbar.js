@@ -6,9 +6,9 @@ let langList = config.langList;
 
 let unshift = "";
 switch (lang) {
-  case "zh":
-    unshift = "zh.";
-    break;
+  // case "zh":
+  //   unshift = "zh.";
+  //   break;
 }
 
 export default {
