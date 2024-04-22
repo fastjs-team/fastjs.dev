@@ -2,7 +2,7 @@
   <div class="thanks">
     <div class="sponsors">
       <h2 class="title">All Sponsors</h2>
-      <img src="https://raw.githubusercontent.com/dy-xiaodong2022/sponsors/main/sponsors.wide.svg" />
+      <img src="https://raw.githubusercontent.com/xiaodong2008/sponsors/main/sponsors.wide.svg" />
     </div>
   </div>
 </template>

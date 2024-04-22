@@ -7,7 +7,7 @@
       <a href="https://docs.fastjs.dev/contribute/sponsor.html" target="_blank" class="support">Support</a>
     </div>
     <div class="data">
-      <a href="https://github.com/dy-xiaodong2022" target="_blank" class="authorInfo">{{ lang.data.authorInfo }}</a>
+      <a href="https://github.com/xiaodong2008" target="_blank" class="authorInfo">{{ lang.data.authorInfo }}</a>
       <a href="https://opensource.org/license/mit/" target="_blank">MIT License</a>
       <span style="margin-left: auto">
         Thanks for <a href="https://github.com/sxzz" style="text-decoration-line: underline;" target="_blank">@sxzz</a>
