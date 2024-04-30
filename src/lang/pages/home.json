@@ -23,6 +23,15 @@
         "button": "Send request"
       }
     },
+    "cookie": {
+      "left": {
+        "title": "FastjsCookie",
+        "desc": "Easy cookie, hot cookie."
+      },
+      "right": {
+        "button": "Set cookie and reload"
+      }
+    },
     "bottom": {
       "data": {
         "authorInfo": "Copyright © 2022-2024 xiaodong2008"
