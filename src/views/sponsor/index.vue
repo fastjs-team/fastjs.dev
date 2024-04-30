@@ -40,8 +40,8 @@ export default {
     return {
       lang: langSetup("sponsor", "index"),
       selected_method:
-        sponsor.find((s) => s.key === this.$route.href.split("/sponsor/")[1])?.name ||
-        "Github Sponsor",
+        sponsor.find((s) => s.key === this.$route.href.split("/sponsor/")[1])
+          ?.name || "Github Sponsor",
       pay_methods: sponsor.map((s) => s.name),
       boxPrevHeight: 0,
       boxPrevWidth: 0,
@@ -156,7 +156,9 @@ export default {
 <style lang="less">
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s, height 0.3s ease;
+  transition:
+    opacity 0.3s,
+    height 0.3s ease;
 }
 
 .fade-enter-from,

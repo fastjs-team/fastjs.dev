@@ -14,7 +14,9 @@
         <div class="content">
           <span id="fastjsRequest_show"></span>
           <span class="blank">====================</span>
-          <a-button class="btn" @click="sendRequest">{{ lang.right.button }}</a-button>
+          <a-button class="btn" @click="sendRequest">{{
+            lang.right.button
+          }}</a-button>
         </div>
       </div>
     </div>
@@ -34,22 +36,22 @@ export default {
       lang: langSetup("home", "request"),
       code1: `import { request } from "jsfast";
 
-request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
-    }
+request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`,
+    };
   },
   methods: {
     sendRequest() {
       const msg = message.loading("Waiting response...", 0);
-      request.get("https://catfact.ninja/fact").then(data => {
+      request.get("https://catfact.ninja/fact").then((data) => {
         dom.select("#fastjsRequest_show").html(data.fact);
         msg();
-      })
-    }
+      });
+    },
   },
   components: {
-    CodeBlock
+    CodeBlock,
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -63,7 +65,7 @@ request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
     padding: 6vh 22vw 0;
     transition: padding 0.5s;
 
-    >* {
+    > * {
       width: 560px;
     }
 
@@ -85,7 +87,7 @@ request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
       padding-left: 20px;
     }
 
-    >* {
+    > * {
       padding-bottom: 6vh;
     }
   }
@@ -99,7 +101,7 @@ request.get("https://catfact.ninja/fact").then(data => msg(data.fact));`
       padding: 0;
       display: block;
 
-      >* {
+      > * {
         width: 100%;
         display: flex;
         justify-content: center;

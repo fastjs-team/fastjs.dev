@@ -5,9 +5,9 @@ on:
     types: [labeled]
 
 permissions:
-    contents: read
-    issues: write
-    pull-requests: write
+  contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   invalid:
@@ -50,7 +50,7 @@ jobs:
           issue-number: ${{ github.event.number }}
           body: |
             Your pull request sounds good, but we need to deploy this pull request to our test environment to make sure it works well.
-            
+
             It will **automatically start**, please wait patiently.
 
       - name: Checkout Code
@@ -77,7 +77,7 @@ jobs:
           issue-number: ${{ github.event.number }}
           body: |
             [Auto Deploy] Pull Request #${{ github.event.number }} --> Preview
-            
+
             The preview of this Pull Request has been successfully built and deployed to https://fastjs-website-preview-pr-${{ github.event.number }}.surge.sh
 
       - name: Reply to Pull Request - Failed
@@ -87,7 +87,7 @@ jobs:
           issue-number: ${{ github.event.number }}
           body: |
             [Auto Deploy] Pull Request #${{ github.event.number }} -x-> Preview
-            
+
             We have encountered some problems when deploying your pull request, please check the log for details.
 
       - name: Preview URL Log

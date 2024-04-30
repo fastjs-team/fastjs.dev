@@ -22,9 +22,9 @@ export default {
     Request,
     Bottom,
     Main,
-    Date
-  }
-}
+    Date,
+  },
+};
 </script>
 
 <style lang="less" scoped>

@@ -13,11 +13,10 @@ export default {
       setTimeout(() => {
         this.$refs.shake.classList.remove("apply");
       }, 820);
-    }
+    },
   },
   mounted() {
-    if (!this.on)
-      return;
+    if (!this.on) return;
     this.$refs.shake.addEventListener(this.on, () => {
       this.shake();
     });
@@ -25,30 +24,35 @@ export default {
   props: {
     on: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
 .shake {
   &.apply {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   }
 }
 
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }

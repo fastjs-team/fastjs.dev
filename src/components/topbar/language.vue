@@ -17,36 +17,36 @@ import { CaretDownFilled } from "@ant-design/icons-vue";
 import { dom } from "jsfast";
 
 export default {
-  name: 'language-dropdown',
+  name: "language-dropdown",
   data() {
-    return {
-    };
+    return {};
   },
   mounted() {
     const menu = dom.select(".dropdown-menu");
     const maxHeight = menu.get("offsetHeight");
-    dom.select('.dropdown')[0]
+    dom
+      .select(".dropdown")[0]
       .addEvent("mouseenter", () => {
-        menu.setStyle("height", maxHeight + "px")
+        menu.setStyle("height", maxHeight + "px");
       })
       .addEvent("mouseleave", () => {
-        menu.setStyle("height", "0")
-      })
-    menu.setStyle("height", "0")
+        menu.setStyle("height", "0");
+      });
+    menu.setStyle("height", "0");
   },
   props: {
     title: {
       type: String,
-      default: 'Language'
+      default: "Language",
     },
     items: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   components: {
-    CaretDownFilled
-  }
+    CaretDownFilled,
+  },
 };
 </script>
 

@@ -5,10 +5,12 @@ const lang = cookie.get("language");
 let langList = config.langList;
 
 let unshift = "";
-switch (lang) {
+switch (
+  lang
   // case "zh":
   //   unshift = "zh.";
   //   break;
+) {
 }
 
 export default {

@@ -4,24 +4,34 @@
       <div id="topbar-content">
         <div class="container left">
           <router-link to="/">
-            <img src="/icon.svg" class="icon" alt="logo" width="30" height="30"/>
+            <img
+              src="/icon.svg"
+              class="icon"
+              alt="logo"
+              width="30"
+              height="30"
+            />
           </router-link>
-          <topbar-item v-for="item in localizedList.left" :key="item.name" :item="item"/>
+          <topbar-item
+            v-for="item in localizedList.left"
+            :key="item.name"
+            :item="item"
+          />
         </div>
         <div class="container right">
           <topbar-item
-              v-for="item in localizedList.right"
-              :key="item.name"
-              :item="item"
-              class="right-item"
+            v-for="item in localizedList.right"
+            :key="item.name"
+            :item="item"
+            class="right-item"
           />
           <a-space class="icon">
             <a
-                href="https://github.com/fastjs-team/core/"
-                target="_blank"
-                style="color: black"
+              href="https://github.com/fastjs-team/core/"
+              target="_blank"
+              style="color: black"
             >
-              <github-outlined style="color: white"/>
+              <github-outlined style="color: white" />
             </a>
           </a-space>
         </div>
@@ -33,7 +43,7 @@
 <script>
 import topbar from "./topbar.js";
 import TopbarItem from "./topbarItem.vue";
-import {GithubOutlined, CaretDownFilled} from "@ant-design/icons-vue";
+import { GithubOutlined, CaretDownFilled } from "@ant-design/icons-vue";
 import langSetup from "@/lang/setup";
 
 export default {
@@ -61,7 +71,7 @@ export default {
 
       for (const side in this.list) {
         this.list[side].forEach((item) => {
-          const localizedItem = {...item, name: lang[item.name]};
+          const localizedItem = { ...item, name: lang[item.name] };
           localizedList[side].push(localizedItem);
         });
       }
@@ -89,7 +99,10 @@ export default {
 
   #topbar-content {
     display: flex;
-    transition: opacity 0.5s, background 0.8s, ease 0.4s;
+    transition:
+      opacity 0.5s,
+      background 0.8s,
+      ease 0.4s;
 
     .container {
       display: flex;

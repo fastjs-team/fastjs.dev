@@ -4,10 +4,14 @@
       <div class="logo">
         <img alt="logo" :src="logo" />
       </div>
-      <div class="line">{{ config.sponsor.find((e) => e.key === "github").name }}</div>
+      <div class="line">
+        {{ config.sponsor.find((e) => e.key === "github").name }}
+      </div>
     </a-space>
     <div class="body-part">
-      <span> Sponsor us on Github with Stripe, sponsor as monthly or one-time. </span>
+      <span>
+        Sponsor us on Github with Stripe, sponsor as monthly or one-time.
+      </span>
       <span> Stripe supports all major credit and debit cards. </span>
       <a href="https://github.com/sponsors/xiaodong2008" target="_blank">
         <a-button style="margin-top: 12px"> Sponsor </a-button>

@@ -1,9 +1,5 @@
 {
-  "langList": [
-    "en",
-    "zh",
-    "ja"
-  ],
+  "langList": ["en", "zh", "ja"],
   "en": {
     "title": "Fastjs - Fly again with us",
     "sponsor": [

@@ -10,12 +10,18 @@
         </span>
         <shake class="code shake" on="click" @click="codeCopy">
           <span style="color: #c8c8c8"> shell </span>
-          <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
+          <a-divider
+            type="vertical"
+            style="background-color: #c8c8c8; height: 14px"
+          />
           <span style="color: #aa6e6a">npm</span>
           <span style="color: #dfbc67">i</span>
           <span style="color: #84d681; padding-right: 6px">jsfast</span>
           <div class="right">
-            <a-divider type="vertical" style="background-color: #c8c8c8; height: 14px" />
+            <a-divider
+              type="vertical"
+              style="background-color: #c8c8c8; height: 14px"
+            />
             <copy-outlined />
           </div>
         </shake>
@@ -110,7 +116,7 @@ export default {
     cursor: pointer;
   }
 
-  >* {
+  > * {
     width: 100%;
     text-align: center;
     display: inline-block;
@@ -156,7 +162,7 @@ export default {
         display: inline-block;
         float: right;
 
-        >* {
+        > * {
           color: #c8c8c8;
           padding: 0;
         }

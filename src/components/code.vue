@@ -8,8 +8,7 @@
     </div>
     <div class="scroll">
       <div class="line" v-for="line in code">
-        <div class="code" v-html="line">
-        </div>
+        <div class="code" v-html="line"></div>
       </div>
     </div>
     <div class="copy" @click="copy">
@@ -29,36 +28,37 @@ import { CopyOutlined } from "@ant-design/icons-vue";
 export default {
   name: "CodeBlock",
   data() {
-    let code = this.$slots.default()[0].children
+    let code = this.$slots.default()[0].children;
     let codeText = code;
 
     hljs.configure({ languages: [this.lang] });
-    code = hljs.highlight(this.lang, code).value
-      .replace(/^\s+|\s+$/g, "")
+    code = hljs
+      .highlight(this.lang, code)
+      .value.replace(/^\s+|\s+$/g, "")
       .replace(/  /g, "&nbsp;&nbsp;")
       .split("\n");
-  
+
     return {
       code,
-      codeText
+      codeText,
     };
   },
   props: {
     lang: {
       type: String,
-      default: "javascript"
-    }
+      default: "javascript",
+    },
   },
   methods: {
     copy() {
       copy(this.codeText);
       message.success("Code copied");
-    }
+    },
   },
   components: {
     CopyOutlined,
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -123,7 +123,6 @@ export default {
     width: 28px;
     display: grid;
 
-
     .icon {
       display: block;
       margin: auto;
@@ -131,7 +130,7 @@ export default {
     }
   }
 
-  &:hover>.copy {
+  &:hover > .copy {
     opacity: 1;
   }
 }

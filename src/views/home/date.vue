@@ -14,7 +14,9 @@
         <div class="content">
           <span id="fastjsDate_show"></span>
           <span class="blank">====================</span>
-          <a-button class="btn" @click="nextFormat">{{ lang.right.button }}</a-button>
+          <a-button class="btn" @click="nextFormat">{{
+            lang.right.button
+          }}</a-button>
         </div>
       </div>
     </div>
@@ -34,7 +36,11 @@ export default {
     return {
       format: 0,
       autoUpdateDate: setInterval(this.updateTime, 1000),
-      formatList: ["Y-M-D h:m:s", "D/M/Y h:m:s A", "<Now time: >Y-M-D H:m:s.S a"],
+      formatList: [
+        "Y-M-D h:m:s",
+        "D/M/Y h:m:s A",
+        "<Now time: >Y-M-D H:m:s.S a",
+      ],
       lang: langSetup("home", "bind"),
       code1: `import { date } from "jsfast";
 
@@ -47,8 +53,8 @@ console.log(date.parse("Y-M-D h:m:s", "2022-10-21 19:20:46")); // { date, format
 console.log(date.parseDate("Y-M-D h:m:s", new Date(...))); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
 console.log(date.parseTimestamp("Y-M-D h:m:s", 1666351246)); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
 console.log(date.reformat("2022-10-21 19:20:46", "Y-M-D h:m:s", "h:m:s Y-M-D")); // 19:20:46 2022-10-21
-console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
-    }
+console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`,
+    };
   },
   mounted() {
     this.updateTime();
@@ -63,16 +69,18 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
       this.updateTime();
     },
     updateTime() {
-      dom.select("#fastjsDate_show").html(date.string(this.formatList[this.format]));
-    }
+      dom
+        .select("#fastjsDate_show")
+        .html(date.string(this.formatList[this.format]));
+    },
   },
   beforeUnmount() {
     clearInterval(this.autoUpdateDate);
   },
   components: {
-    CodeBlock
-  }
-}
+    CodeBlock,
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -86,7 +94,7 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
     padding: 6vh 22vw 0;
     transition: padding 0.5s;
 
-    >* {
+    > * {
       width: 560px;
     }
 
@@ -108,7 +116,7 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
       padding-left: 20px;
     }
 
-    >* {
+    > * {
       padding-bottom: 6vh;
     }
   }
@@ -122,7 +130,7 @@ console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`
       padding: 6vh 0;
       display: block;
 
-      >* {
+      > * {
         width: 100%;
         display: flex;
         justify-content: center;

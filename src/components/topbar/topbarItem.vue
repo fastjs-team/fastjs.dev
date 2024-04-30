@@ -1,8 +1,22 @@
 <template>
-  <div class="item" :class="{ drop: item.sub !== undefined, canHide: item.canHide }">
-    <Language v-if="item.sub" class="link" :title="item.name" :items="item.sub" />
-    <component v-else :is="item.newPage ? 'a' : 'router-link'" :href="item.link" :to="item.link"
-      :target="item.newPage ? '_blank' : ''" class="link">
+  <div
+    class="item"
+    :class="{ drop: item.sub !== undefined, canHide: item.canHide }"
+  >
+    <Language
+      v-if="item.sub"
+      class="link"
+      :title="item.name"
+      :items="item.sub"
+    />
+    <component
+      v-else
+      :is="item.newPage ? 'a' : 'router-link'"
+      :href="item.link"
+      :to="item.link"
+      :target="item.newPage ? '_blank' : ''"
+      class="link"
+    >
       {{ item.name }}
     </component>
   </div>
@@ -20,8 +34,8 @@ export default {
     },
   },
   components: {
-    Language
-  }
+    Language,
+  },
 };
 </script>
 
@@ -30,7 +44,7 @@ export default {
   height: 100%;
   cursor: pointer;
 
-  >* {
+  > * {
     font-size: 14px;
     color: white;
     height: 100%;

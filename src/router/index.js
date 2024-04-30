@@ -1,11 +1,11 @@
-import {createRouter, createWebHistory} from 'vue-router'
-import Home from '../views/home/index.vue'
-import Sponsor from '../views/sponsor/index.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/home/index.vue";
+import Sponsor from "../views/sponsor/index.vue";
 
 const routes = [
   {
-    path: '/',
-    component: Home
+    path: "/",
+    component: Home,
   },
   {
     path: "/sponsor",
@@ -13,27 +13,27 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import('../views/sponsor/github.vue')
+        component: () => import("../views/sponsor/github.vue"),
       },
       {
         path: "github",
-        component: () => import('../views/sponsor/github.vue')
+        component: () => import("../views/sponsor/github.vue"),
       },
       {
         path: "afdian",
-        component: () => import('../views/sponsor/afdian.vue')
-      }
-    ]
+        component: () => import("../views/sponsor/afdian.vue"),
+      },
+    ],
   },
   {
     path: "/:pathMatch(.*)*",
-    redirect: "/"
-  }
-]
+    redirect: "/",
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: routes
-})
+  routes: routes,
+});
 
-export default router
+export default router;

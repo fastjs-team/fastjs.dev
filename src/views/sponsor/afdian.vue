@@ -4,10 +4,14 @@
       <div class="logo">
         <img alt="logo" :src="logo" />
       </div>
-      <div class="line">{{ config.sponsor.find((e) => e.key === "afdian").name }}</div>
+      <div class="line">
+        {{ config.sponsor.find((e) => e.key === "afdian").name }}
+      </div>
     </a-space>
     <div class="body-part">
-      <span> Sponsor us on afdian.net, a popular Chinese sponsor platform. </span>
+      <span>
+        Sponsor us on afdian.net, a popular Chinese sponsor platform.
+      </span>
       <a href="https://afdian.net/a/dy-xiaodong2022" target="_blank">
         <a-button style="margin-top: 12px"> Sponsor </a-button>
       </a>

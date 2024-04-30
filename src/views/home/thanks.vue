@@ -2,15 +2,17 @@
   <div class="thanks">
     <div class="sponsors">
       <h2 class="title">All Sponsors</h2>
-      <img src="https://raw.githubusercontent.com/xiaodong2008/sponsors/main/sponsors.wide.svg" />
+      <img
+        src="https://raw.githubusercontent.com/xiaodong2008/sponsors/main/sponsors.wide.svg"
+      />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "thanks"
-}
+  name: "thanks",
+};
 </script>
 
 <style lang="less" scoped>
