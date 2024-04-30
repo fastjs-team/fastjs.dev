@@ -14,10 +14,10 @@
         <div class="content">
           <span>Cookie: {{ cookie }}</span>
           <span class="blank">====================</span>
-          <a-input id="fastjsCookie_input" style="margin-bottom: 5px;" />
+          <a-input id="fastjsCookie_input" style="margin-bottom: 5px" />
           <a-button class="btn" @click="setCookie">{{
             lang.right.button
-            }}</a-button>
+          }}</a-button>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@ export default {
 cookie.set("hot-cookie", "Hello, FastJS");
 console.log(cookie.get("hot-cookie")); // 'Hello, FastJS'
 cookie.remove("hot-cookie"); // Eat cookie
-`
+`,
     };
   },
   methods: {
@@ -71,7 +71,7 @@ cookie.remove("hot-cookie"); // Eat cookie
     padding: 6vh 22vw 0;
     transition: padding 0.5s;
 
-    >* {
+    > * {
       width: 560px;
     }
 
@@ -93,7 +93,7 @@ cookie.remove("hot-cookie"); // Eat cookie
       padding-left: 20px;
     }
 
-    >* {
+    > * {
       padding-bottom: 6vh;
     }
   }
@@ -107,7 +107,7 @@ cookie.remove("hot-cookie"); // Eat cookie
       padding: 0;
       display: block;
 
-      >* {
+      > * {
         width: 100%;
         display: flex;
         justify-content: center;
