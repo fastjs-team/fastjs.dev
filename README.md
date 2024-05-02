@@ -1,11 +1,8 @@
 # fastjs.dev
 
-> [!IMPORTANT]
-> Our website has been moved to https://fastjs.dev/
-
 This is the official website of [Fastjs](https://github.com/fastjs-team/core).
 
-For the documentation, please visit [docs repo](https://github.com/fastjs-team/docs) or [here](https://docs.fastjs.dev/).
+For the documentation, please visit [docs repo](https://github.com/fastjs-team/docs) or [just here](https://docs.fastjs.dev/).
 
 ## Auto Deploy
 
