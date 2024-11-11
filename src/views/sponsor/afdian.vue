@@ -12,7 +12,7 @@
       <span>
         Sponsor us on afdian.net, a popular Chinese sponsor platform.
       </span>
-      <a href="https://afdian.net/a/dy-xiaodong2022" target="_blank">
+      <a href="https://afdian.com/a/xiaodong2008" target="_blank">
         <a-button style="margin-top: 12px"> Sponsor </a-button>
       </a>
     </div>
