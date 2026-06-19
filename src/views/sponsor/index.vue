@@ -1,168 +1,142 @@
 <template>
-  <div id="sponsor">
-    <div class="sponsor-box">
-      <span class="title">{{ lang.title }}</span>
-      <span class="subtitle">{{ lang.subtitle }}</span>
-      <div class="sponsor-content">
-        <a-segmented
-          v-model:value="selected_method"
-          :options="pay_methods"
-          @change="methodChange"
-        />
-        <div class="outlink-box">
-          <router-view v-slot="{ Component }">
-            <transition
-              name="fade"
-              mode="out-in"
-              @beforeLeave="beforeLeave"
-              @enter="enter"
-              @afterEnter="afterEnter"
-            >
-              <component :is="Component" />
-            </transition>
-          </router-view>
-        </div>
+  <section class="section sponsor">
+    <div class="container sponsor-inner">
+      <p class="eyebrow">{{ lang.eyebrow }}</p>
+      <h1 class="section-title sponsor-title">
+        {{ lang.titleLine1 }}
+        <span class="gradient-text">{{ lang.titleLine2 }}</span>
+      </h1>
+      <p class="section-lead sponsor-lead">{{ lang.lead }}</p>
+
+      <div class="sponsor-tabs" role="tablist">
+        <button
+          v-for="method in methods"
+          :key="method.key"
+          role="tab"
+          :aria-selected="active === method.key"
+          :class="['sponsor-tab', { 'is-active': active === method.key }]"
+          @click="select(method.key)"
+        >
+          {{ method.name }}
+        </button>
+      </div>
+
+      <div class="sponsor-card">
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import langSetup from "@/lang/setup";
 
-// get config.sponsor
-const config = langSetup("config");
-const sponsor = config.sponsor;
-
 export default {
   name: "sponsor-index",
   data() {
+    const config = langSetup("config");
+    const methods = config.sponsor;
+    const fromUrl = this.$route.href.split("/sponsor/")[1] || "";
+
     return {
       lang: langSetup("sponsor", "index"),
-      selected_method:
-        sponsor.find((s) => s.key === this.$route.href.split("/sponsor/")[1])
-          ?.name || "Github Sponsor",
-      pay_methods: sponsor.map((s) => s.name),
-      boxPrevHeight: 0,
-      boxPrevWidth: 0,
+      methods,
+      active: methods.find((m) => m.key === fromUrl)?.key || methods[0].key,
     };
   },
+  watch: {
+    $route(to) {
+      const fromUrl = to.href.split("/sponsor/")[1] || "";
+      const found = this.methods.find((m) => m.key === fromUrl);
+      if (found) this.active = found.key;
+    },
+  },
   methods: {
-    methodChange(value) {
-      this.selected_method = value;
-      this.$router.push({
-        path: "/sponsor/" + sponsor.find((s) => s.name === value).key,
-      });
-    },
-    beforeLeave(element) {
-      this.prevHeight = getComputedStyle(element).height;
-    },
-    enter(element) {
-      const { height } = getComputedStyle(element);
-
-      element.style.height = this.prevHeight;
-
-      setTimeout(() => {
-        element.style.height = height;
-      });
-    },
-    afterEnter(element) {
-      element.style.height = "auto";
+    select(key) {
+      this.active = key;
+      this.$router.push({ path: "/sponsor/" + key });
     },
   },
 };
 </script>
 
 <style lang="less" scoped>
-#sponsor {
-  height: 100vh;
-  margin: 0;
-  width: 100%;
-  display: block;
-  overflow-x: hidden;
-  transition: 0.5s;
-  position: relative;
-  padding-top: 20vh;
+.sponsor {
+  padding-block: clamp(96px, 14vh, 160px);
 }
 
-.sponsor-box {
-  width: 100%;
-  height: auto;
-  color: white;
-
-  > * {
-    width: 100%;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .title {
-    margin-top: 10vh;
-    font-weight: 700;
-    font-size: 3rem;
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: default;
-  }
-
-  .subtitle {
-    margin-top: 2vh;
-    font-weight: 400;
-    font-size: 0.8rem;
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: default;
-  }
-
-  .sponsor-content {
-    margin-top: 5vh;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-
-    > * {
-      margin: 0 auto;
-    }
-
-    :deep(.ant-segmented) {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-      user-select: none;
-      -webkit-user-select: none;
-
-      label:hover {
-        color: rgb(149, 149, 149);
-      }
-    }
-
-    .outlink-box {
-      border: 1px solid white;
-      border-radius: 8px;
-      margin-top: 5vh;
-      padding: 20px;
-      transition: 0.5s;
-      width: 500px;
-
-      > div {
-        display: grid;
-      }
-    }
-  }
+.sponsor-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-</style>
 
-<style lang="less">
-.fade-enter-active,
-.fade-leave-active {
+.sponsor-title {
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  max-width: 18ch;
+  margin-bottom: 18px;
+}
+
+.sponsor-lead {
+  max-width: 56ch;
+  margin-bottom: 44px;
+}
+
+.sponsor-tabs {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+.sponsor-tab {
+  border: 0;
+  background: transparent;
+  color: var(--text-soft);
+  height: 36px;
+  padding-inline: 18px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
   transition:
-    opacity 0.3s,
-    height 0.3s ease;
+    color 180ms var(--ease-out),
+    background 180ms var(--ease-out);
+
+  &:hover {
+    color: #fff;
+  }
+
+  &.is-active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.sponsor-card {
+  width: min(100%, 520px);
+  padding: 32px;
+  border-radius: var(--r-lg);
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border);
+  text-align: left;
+  transition: border-color 220ms var(--ease-out), background 220ms var(--ease-out);
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
 }
 </style>

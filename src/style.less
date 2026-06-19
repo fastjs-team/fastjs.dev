@@ -1,71 +1,338 @@
-html {
-  zoom: 0.9;
+/* -----------------------------------------------------------------------
+ * Fastjs.dev — global design tokens, base reset, shared primitives.
+ * --------------------------------------------------------------------- */
+
+:root {
+  /* brand palette taken from the Fastjs logo */
+  --c-pink: #e23f76;
+  --c-coral: #f1696e;
+  --c-amber: #f8c646;
+  --c-blue: #06aef9;
+  --c-purple: #9374fc;
+
+  /* gradients */
+  --g-hero: linear-gradient(
+    135deg,
+    #f8c646 0%,
+    #f1696e 35%,
+    #e23f76 65%,
+    #9374fc 100%
+  );
+  --g-hero-soft: linear-gradient(
+    135deg,
+    rgba(248, 198, 70, 0.18),
+    rgba(241, 105, 110, 0.18),
+    rgba(226, 63, 118, 0.18),
+    rgba(147, 116, 252, 0.18)
+  );
+  --g-accent-blue: linear-gradient(135deg, #06aef9 0%, #9374fc 100%);
+
+  /* surface */
+  --bg: #0a0a0c;
+  --bg-elev-1: #111114;
+  --bg-elev-2: #16161b;
+  --bg-code: #0d0d10;
+
+  /* text */
+  --text: rgba(255, 255, 255, 0.92);
+  --text-soft: rgba(255, 255, 255, 0.66);
+  --text-mute: rgba(255, 255, 255, 0.42);
+
+  /* borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* radii */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+
+  /* shadows */
+  --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-2: 0 24px 64px rgba(0, 0, 0, 0.55);
+
+  /* layout */
+  --container: 1180px;
+  --gutter: clamp(20px, 5vw, 64px);
+
+  /* typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: "Fira Code", "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, monospace;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#app {
-  overflow: hidden;
-  filter: brightness(0.9);
+* {
+  box-sizing: border-box;
 }
 
-.ant-btn {
-  background: transparent;
-  border-color: #d4d4d4;
-  transition: 0.4s;
-
-  &:hover {
-    background: transparent;
-    border-color: rgb(149, 149, 149) !important;
-  }
-}
-
-a {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:link {
-    color: unset;
-  }
-
-  &:visited {
-    color: unset;
-  }
+html,
+body {
+  /* override ant-design-vue/dist/reset.css which sets html,body { height: 100% }
+     and clamps the document to the viewport height, hiding the footer below the
+     body's internal scroll. */
+  height: auto;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  transition:
-    background-color 0.5s,
-    color 0.5s;
-  background-color: #131111 !important;
-  color: #d4d4d4 !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  #app {
-    .codeblock {
-      background-color: #252526;
-      color: unset !important;
-    }
+#app {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
 
-    span:not(.code, .code *),
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    a {
-      color: #d4d4d4 !important;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 160ms var(--ease-out);
+
+  &:hover {
+    color: #fff;
   }
 }
 
-.code,
-.mono {
-  font-family: "JetBrains Mono", monospace !important;
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
-:deep(.ant-btn-primary) {
-  background: transparent !important;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(226, 63, 118, 0.4);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* -----------------------------------------------------------------------
+ * Layout primitives
+ * --------------------------------------------------------------------- */
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(80px, 12vh, 140px);
+  position: relative;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mute);
+  margin: 0 0 16px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.section-lead {
+  color: var(--text-soft);
+  font-size: clamp(15px, 1.6vw, 18px);
+  max-width: 60ch;
+  margin: 0 0 56px;
+}
+
+.gradient-text {
+  background: var(--g-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* -----------------------------------------------------------------------
+ * Buttons (custom, supersede Ant Design where styled)
+ * --------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding-inline: 22px;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 200ms var(--ease-out),
+    border-color 200ms var(--ease-out),
+    transform 180ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
+  white-space: nowrap;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--primary {
+    background: var(--g-hero);
+    color: #0a0a0c;
+    box-shadow: 0 8px 24px rgba(226, 63, 118, 0.25);
+
+    &:hover {
+      filter: brightness(1.06);
+      box-shadow: 0 14px 36px rgba(226, 63, 118, 0.35);
+      color: #0a0a0c;
+    }
+  }
+
+  &--outline {
+    border-color: var(--border-strong);
+    color: var(--text);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.28);
+      color: #fff;
+    }
+  }
+
+  &--ghost {
+    color: var(--text-soft);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+  }
+
+  &--small {
+    height: 38px;
+    padding-inline: 16px;
+    font-size: 14px;
+  }
+}
+
+/* -----------------------------------------------------------------------
+ * Cards
+ * --------------------------------------------------------------------- */
+
+.card {
+  position: relative;
+  padding: 28px;
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms var(--ease-out),
+    background 240ms var(--ease-out);
+
+  &:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    background: linear-gradient(180deg, var(--bg-elev-1), var(--bg-elev-2));
+  }
+}
+
+/* -----------------------------------------------------------------------
+ * Ant Design Vue overrides — keep `a-message`, neutralise the rest
+ * --------------------------------------------------------------------- */
+
+.ant-message-notice-content {
+  background: var(--bg-elev-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-1) !important;
+  border-radius: 10px !important;
+}
+
+/* -----------------------------------------------------------------------
+ * Route fade transition (used in App.vue)
+ * --------------------------------------------------------------------- */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s var(--ease-out);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* -----------------------------------------------------------------------
+ * Reduce-motion friendly
+ * --------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* -----------------------------------------------------------------------
+ * Responsive
+ * --------------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 22px;
+  }
+  .section {
+    padding-block: 72px;
+  }
 }

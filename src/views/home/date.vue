@@ -1,146 +1,216 @@
 <template>
-  <div class="bind">
-    <div class="flex">
-      <div class="left">
-        <div class="content">
-          <h2>{{ lang.left.title }}</h2>
-          <span>{{ lang.left.desc }}</span>
-          <CodeBlock class="code">
-            {{ code1 }}
-          </CodeBlock>
-        </div>
+  <section class="section demo demo--date">
+    <div class="container demo-grid">
+      <div class="demo-copy">
+        <p class="eyebrow"><span class="chip chip--amber">date</span></p>
+        <h2 class="section-title">{{ lang.title }}</h2>
+        <p class="demo-lead">{{ lang.body }}</p>
+        <ul class="demo-bullets">
+          <li v-for="bullet in lang.bullets" :key="bullet">
+            <span class="bullet" aria-hidden="true"></span>
+            <span>{{ bullet }}</span>
+          </li>
+        </ul>
       </div>
-      <div class="right">
-        <div class="content">
-          <span id="fastjsDate_show"></span>
-          <span class="blank">====================</span>
-          <a-button class="btn" @click="nextFormat">{{
-            lang.right.button
-          }}</a-button>
+
+      <div class="demo-stage">
+        <CodeBlock :filename="'date.ts'">{{ snippet }}</CodeBlock>
+        <div class="demo-play">
+          <div class="demo-play-title">{{ lang.previewLabel }}</div>
+          <div class="demo-output">{{ output }}</div>
+          <div class="demo-play-actions">
+            <button class="btn btn--outline btn--small" @click="cycleFormat">
+              {{ lang.cycleBtn }}
+            </button>
+            <span class="demo-meta">{{ lang.formatLabel }} <code>{{ format }}</code></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import langSetup from "@/lang/setup";
-import { dom, date } from "jsfast";
 import CodeBlock from "@/components/code.vue";
+import langSetup from "@/lang/setup";
+import { date } from "jsfast";
 
-// const date = new date("Y-M-D h:m:s");
+const FORMATS = [
+  "Y-M-D h:m:s",
+  "D/M/Y h:m:s A",
+  "<Now time: >Y-M-D h:m:s.S a",
+];
 
 export default {
-  name: "bind",
+  name: "DateDemo",
+  components: { CodeBlock },
   data() {
     return {
-      format: 0,
-      autoUpdateDate: setInterval(this.updateTime, 1000),
-      formatList: [
-        "Y-M-D h:m:s",
-        "D/M/Y h:m:s A",
-        "<Now time: >Y-M-D H:m:s.S a",
-      ],
-      lang: langSetup("home", "bind"),
-      code1: `import { date } from "jsfast";
+      lang: langSetup("home", "date"),
+      index: 0,
+      output: "",
+      timer: null,
+      snippet: `import { date } from "jsfast";
 
-console.log(date.string("Y-M-D h:m:s"));
-console.log(date.string("D/M/Y h:m:s A"));
-console.log(date.string("<Now time: >Y-M-D H:m:s.S a"));
+// Format a timestamp or "now"
+date.string("Y-M-D h:m:s");
+date.string("<Now time: >Y-M-D h:m:s.S a");
 
-// More functions
-console.log(date.parse("Y-M-D h:m:s", "2022-10-21 19:20:46")); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
-console.log(date.parseDate("Y-M-D h:m:s", new Date(...))); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
-console.log(date.parseTimestamp("Y-M-D h:m:s", 1666351246)); // { date, format, dateString, timestamp, utcDateString, utcTimestamp }
-console.log(date.reformat("2022-10-21 19:20:46", "Y-M-D h:m:s", "h:m:s Y-M-D")); // 19:20:46 2022-10-21
-console.log(date.date("Y-M-D h:m:s", "2022-10-21 19:20:46")); // Date { ... }`,
+// Two-way parse + reformat
+const parsed = date.parse("2025-06-19 09:30", "Y-M-D h:m");
+date.reformat("Y-M-D", "2025-06-19", "Y/M/D");
+
+// Keep your own instance for clocks and timezones
+const clock = date.create();
+clock.setZone(8).toString("local");
+clock.toActiveString(); // ticks forward in real time`,
     };
   },
-  mounted() {
-    this.updateTime();
+  computed: {
+    format() {
+      return FORMATS[this.index];
+    },
   },
   methods: {
-    nextFormat() {
-      this.format++;
-      if (this.format >= this.formatList.length) {
-        this.format = 0;
-      }
-      date.format = this.formatList[this.format];
-      this.updateTime();
+    update() {
+      this.output = date.string(this.format);
     },
-    updateTime() {
-      dom
-        .select("#fastjsDate_show")
-        .html(date.string(this.formatList[this.format]));
+    cycleFormat() {
+      this.index = (this.index + 1) % FORMATS.length;
+      this.update();
     },
+  },
+  mounted() {
+    this.update();
+    this.timer = setInterval(this.update, 1000);
   },
   beforeUnmount() {
-    clearInterval(this.autoUpdateDate);
-  },
-  components: {
-    CodeBlock,
+    clearInterval(this.timer);
   },
 };
 </script>
 
 <style lang="less" scoped>
-.bind {
-  width: 100%;
+.demo {
+  &-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
 
-  .flex {
-    margin: 0 auto;
+    @media (max-width: 920px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-lead {
+    color: var(--text-soft);
+    font-size: clamp(15px, 1.5vw, 17px);
+    line-height: 1.65;
+    margin: 0 0 28px;
+    max-width: 52ch;
+  }
+
+  &-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+
+    li {
+      display: flex;
+      gap: 12px;
+      color: var(--text-soft);
+      font-size: 14.5px;
+    }
+  }
+
+  &-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &-play {
+    padding: 18px 20px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--border);
+    background: var(--bg-elev-1);
+    display: grid;
+    gap: 12px;
+  }
+
+  &-play-title {
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &-output {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: #fff;
+    background: var(--bg-code);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-play-actions {
     display: flex;
     flex-wrap: wrap;
-    padding: 6vh 22vw 0;
-    transition: padding 0.5s;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    > * {
-      width: 560px;
-    }
+  &-meta {
+    font-size: 12.5px;
+    color: var(--text-mute);
 
-    .left {
-      flex: 2;
-      padding-right: 20px;
-
-      .code {
-        margin-top: 20px;
-      }
-    }
-
-    .right {
-      span {
-        display: block;
-      }
-
-      flex: 1;
-      padding-left: 20px;
-    }
-
-    > * {
-      padding-bottom: 6vh;
+    code {
+      font-family: var(--font-mono);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 6px;
     }
   }
 }
-</style>
 
-<style lang="less" scoped>
-@media screen and (max-width: 1450px) {
-  .bind {
-    .flex {
-      padding: 6vh 0;
-      display: block;
+.bullet {
+  margin-top: 8px;
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--g-hero);
+  box-shadow: 0 0 12px rgba(241, 105, 110, 0.45);
+}
 
-      > * {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding: 0 0 6vh !important;
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--chip, #fff) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chip, #fff) 38%, transparent);
+  color: color-mix(in srgb, var(--chip, #fff) 92%, #fff 8%);
+  text-transform: none;
 
-        .content {
-          width: 80%;
-        }
-      }
-    }
-  }
+  &--amber { --chip: #f8c646; }
 }
 </style>

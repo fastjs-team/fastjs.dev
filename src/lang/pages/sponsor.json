@@ -1,8 +1,59 @@
 {
   "en": {
     "index": {
-      "title": "Dreams come true here",
-      "subtitle": "Your sponsoring is helping us to let our dreams come true"
+      "eyebrow": "Sponsor Fastjs",
+      "titleLine1": "Dreams come true",
+      "titleLine2": "with your help.",
+      "lead": "Your sponsoring keeps Fastjs free, open source and actively maintained. Pick the platform that suits you best below — every contribution, big or small, makes the next release possible."
+    },
+    "github": {
+      "subtitle": "Recurring or one-off, paid in USD.",
+      "body1": "GitHub Sponsors is the easiest way to support Fastjs if you already use GitHub. Monthly tiers start at $1 and unlock perks such as your name on the website, repo and sponsors poster.",
+      "body2": "Sponsorships go directly to the maintainer — there are no platform fees on top of GitHub's standard processing.",
+      "cta": "Sponsor on GitHub"
+    },
+    "afdian": {
+      "subtitle": "Recurring or one-off, paid in CNY.",
+      "body": "Prefer a Chinese-friendly payment flow? Afdian (爱发电) accepts Alipay and WeChat Pay, with the same sponsor perks as GitHub Sponsors.",
+      "cta": "Sponsor on Afdian"
+    }
+  },
+  "zh": {
+    "index": {
+      "eyebrow": "赞助 Fastjs",
+      "titleLine1": "梦想会成真，",
+      "titleLine2": "因为有你。",
+      "lead": "你的赞助让 Fastjs 保持免费、开源并持续维护。请在下方挑选适合你的平台——任何大小的支持，都会让下一个版本成为可能。"
+    },
+    "github": {
+      "subtitle": "支持订阅或一次性，结算货币 USD。",
+      "body1": "如果你已经在使用 GitHub，GitHub Sponsors 是支持 Fastjs 最方便的方式。月度档位从 $1 起，可解锁如在官网、仓库和赞助海报上署名等权益。",
+      "body2": "全部款项会直接进入维护者账户，除 GitHub 自身的支付通道费用外不收取额外平台费。",
+      "cta": "在 GitHub 上赞助"
+    },
+    "afdian": {
+      "subtitle": "支持订阅或一次性，结算货币 CNY。",
+      "body": "更习惯国内的支付流程？爱发电支持支付宝与微信支付，享有与 GitHub Sponsors 相同的赞助者权益。",
+      "cta": "在爱发电上赞助"
+    }
+  },
+  "ja": {
+    "index": {
+      "eyebrow": "Fastjs をスポンサー",
+      "titleLine1": "夢の実現に、",
+      "titleLine2": "あなたの力を。",
+      "lead": "皆さまのスポンサードによって、Fastjs は無料・オープンソースで運営を続けられます。下記からお好みのプラットフォームをお選びください。金額の大小に関わらず、すべての応援が次のリリースを後押しします。"
+    },
+    "github": {
+      "subtitle": "定期 / 単発、決済通貨は USD。",
+      "body1": "すでに GitHub を使っているなら、GitHub Sponsors が最も手軽な支援方法です。月額 $1 から、ウェブサイトやリポジトリ、スポンサーポスターへの掲載などの特典を受けられます。",
+      "body2": "支払いはメンテナーへ直接送金され、GitHub の決済手数料を除き追加のプラットフォーム手数料は発生しません。",
+      "cta": "GitHub でスポンサー"
+    },
+    "afdian": {
+      "subtitle": "定期 / 単発、決済通貨は CNY。",
+      "body": "中国国内の決済を希望される方は Afdian（爱发电）をご利用いただけます。Alipay と WeChat Pay に対応し、GitHub Sponsors と同等のスポンサー特典をご用意しています。",
+      "cta": "Afdian でスポンサー"
     }
   }
 }

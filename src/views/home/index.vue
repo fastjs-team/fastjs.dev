@@ -1,37 +1,34 @@
 <template>
   <div id="home">
     <Main />
+    <Features />
+    <Modules />
     <Date />
     <Request />
     <Cookie />
     <Thanks />
-    <Bottom />
   </div>
 </template>
 
 <script>
 import Main from "./main.vue";
-import Date from "@/views/home/date.vue";
-import Bottom from "@/views/home/bottom.vue";
-import Request from "@/views/home/request.vue";
-import Cookie from "@/views/home/cookie.vue";
-import Thanks from "@/views/home/thanks.vue";
+import Features from "./features.vue";
+import Modules from "./modules.vue";
+import Date from "./date.vue";
+import Request from "./request.vue";
+import Cookie from "./cookie.vue";
+import Thanks from "./thanks.vue";
 
 export default {
   name: "home",
   components: {
-    Thanks,
+    Main,
+    Features,
+    Modules,
+    Date,
     Request,
     Cookie,
-    Bottom,
-    Main,
-    Date,
+    Thanks,
   },
 };
 </script>
-
-<style lang="less" scoped>
-#home {
-  background-color: rgb(19, 17, 17);
-}
-</style>

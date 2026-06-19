@@ -7,7 +7,6 @@ import Antd from "ant-design-vue";
 
 import "ant-design-vue/dist/reset.css";
 import "./style.less";
-import "./mono.less";
 
 const app = createApp(App);
 

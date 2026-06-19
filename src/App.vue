@@ -1,76 +1,123 @@
 <template>
   <topbar />
-  <div class="background"></div>
+
+  <div class="site-bg" aria-hidden="true">
+    <div class="orb orb--pink"></div>
+    <div class="orb orb--blue"></div>
+    <div class="orb orb--amber"></div>
+    <div class="site-bg-grid"></div>
+  </div>
+
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view>
+
+  <Bottom />
 </template>
 
 <script>
 import Topbar from "@/components/topbar/topbar.vue";
+import Bottom from "@/views/home/bottom.vue";
 import langSetup from "@/lang/setup";
-import { dom, rand } from "jsfast";
 
 const lang = langSetup("config");
 
 export default {
   name: "App",
-  data() {
-    // check lang
-    const language = localStorage.getItem("lang") || "en";
-    if (language === "en") {
-      localStorage.setItem("lang", "en");
-    }
-    document.title = lang.title;
-    return {};
-  },
   components: {
     Topbar,
+    Bottom,
   },
-  mounted() {
-    // add star
-    function newStar() {
-      dom
-        .newEl("span", {
-          class: "star",
-          css: {
-            left: rand(0, 100) + "vw",
-            top: rand(0, 100) + "vh",
-            transform: `scale(${rand(0, 150) / 100 + 0.5})`,
-          },
-        })
-        .push(dom.select(".background"), "lastElementChild")
-        .el.then((star) => {
-          star.addClass("show").then(
-            () => {
-              star.addClass("hide").then(() => {
-                star.remove();
-              }, 1000);
-            },
-            rand(3000, 15000),
-          );
-        }, 10)
-        .then(newStar, rand(100, 2000));
-    }
-    newStar();
+  data() {
+    document.title = lang.title;
+    return {};
   },
 };
 </script>
 
 <style lang="less">
-body {
-  background-color: #131111;
+/* Background lives at z-index 0; everything else lifts above. */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  /* z-index: 0 puts site-bg in stacking step 6 of #app, i.e. ABOVE non-positioned
+     in-flow content (step 3) like .site-footer / #home. Use a negative z-index so
+     site-bg's solid var(--bg) background no longer masks the footer text. */
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(
+      1200px 700px at 50% -180px,
+      rgba(147, 116, 252, 0.16),
+      transparent 60%
+    ),
+    var(--bg);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  will-change: transform;
+  animation: orb-drift 22s ease-in-out infinite alternate;
+
+  &--pink {
+    width: 520px;
+    height: 520px;
+    top: -140px;
+    left: -120px;
+    background: radial-gradient(circle at 30% 30%, #e23f76 0%, transparent 65%);
+    opacity: 0.5;
+  }
+
+  &--blue {
+    width: 620px;
+    height: 620px;
+    top: 28vh;
+    right: -200px;
+    background: radial-gradient(circle at 60% 40%, #06aef9 0%, transparent 65%);
+    opacity: 0.32;
+    animation-duration: 28s;
+    animation-delay: -8s;
+  }
+
+  &--amber {
+    width: 440px;
+    height: 440px;
+    bottom: -160px;
+    left: 30vw;
+    background: radial-gradient(circle at 40% 60%, #f8c646 0%, transparent 65%);
+    opacity: 0.26;
+    animation-duration: 32s;
+    animation-delay: -14s;
+  }
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.site-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at top, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse at top, #000 0%, transparent 70%);
+  opacity: 0.32;
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(40px, -30px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-30px, 40px, 0) scale(0.97);
+  }
 }
 </style>

@@ -1,11 +1,10 @@
 import vue from "@vitejs/plugin-vue";
-import mkcert from "vite-plugin-mkcert";
 
 export default {
   server: {
-    https: true,
+    host: true,
   },
-  plugins: [vue(), mkcert()],
+  plugins: [vue()],
   base: "/",
   build: {
     rollupOptions: {

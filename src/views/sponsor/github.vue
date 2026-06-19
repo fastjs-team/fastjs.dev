@@ -1,23 +1,27 @@
 <template>
-  <div class="sponsor-github">
-    <a-space class="top-part">
+  <article class="sponsor-method">
+    <header class="sponsor-method-head">
       <div class="logo">
-        <img alt="logo" :src="logo" />
+        <img alt="GitHub Sponsors" :src="logo" />
       </div>
-      <div class="line">
-        {{ config.sponsor.find((e) => e.key === "github").name }}
+      <div>
+        <h2>{{ name }}</h2>
+        <p class="muted">{{ lang.subtitle }}</p>
       </div>
-    </a-space>
-    <div class="body-part">
-      <span>
-        Sponsor us on Github with Stripe, sponsor as monthly or one-time.
-      </span>
-      <span> Stripe supports all major credit and debit cards. </span>
-      <a href="https://github.com/sponsors/xiaodong2008" target="_blank">
-        <a-button style="margin-top: 12px"> Sponsor </a-button>
-      </a>
-    </div>
-  </div>
+    </header>
+
+    <p class="sponsor-method-body">{{ lang.body1 }}</p>
+    <p class="sponsor-method-body">{{ lang.body2 }}</p>
+
+    <a
+      class="btn btn--primary"
+      href="https://github.com/sponsors/xiaodong2008"
+      target="_blank"
+      rel="noopener"
+    >
+      {{ lang.cta }}
+    </a>
+  </article>
 </template>
 
 <script>
@@ -27,28 +31,38 @@ import logo from "@/assets/github-sponsor-logo.png";
 export default {
   name: "sponsor-github",
   data() {
+    const config = langSetup("config");
     return {
       lang: langSetup("sponsor", "github"),
-      config: langSetup("config"),
-      logo: logo,
+      name: config.sponsor.find((e) => e.key === "github").name,
+      logo,
     };
   },
 };
 </script>
 
 <style lang="less" scoped>
-.top-part {
-  font-size: 18px;
-  align-items: normal;
+.sponsor-method {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sponsor-method-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 4px;
 
   .logo {
-    width: 38px;
-    height: 38px;
-    // margin-right: 3px;
-    border-radius: 50%;
-    background-color: #fff;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #fff;
+    display: grid;
+    place-items: center;
     padding: 6px;
-    position: relative;
 
     img {
       width: 100%;
@@ -56,37 +70,30 @@ export default {
     }
   }
 
-  .line {
-    position: relative;
-    width: auto;
-    white-space: nowrap;
-    margin-top: 8px;
-    left: -20px;
-    padding: 0 14px 0 20px;
-
-    &::after {
-      height: 2px;
-      background-color: #fff;
-      border-radius: 2px;
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 100%;
-      top: 100%;
-    }
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
   }
-  span {
-    line-height: 36px;
+
+  .muted {
+    margin: 2px 0 0;
+    color: var(--text-mute);
+    font-size: 13px;
   }
 }
 
-.body-part {
-  font-size: 14px;
-  margin-top: 12px;
-  text-align: left;
+.sponsor-method-body {
+  color: var(--text-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
 
-  > * {
-    display: block;
-  }
+.btn {
+  align-self: flex-start;
+  margin-top: 8px;
 }
 </style>

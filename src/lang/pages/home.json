@@ -1,101 +1,536 @@
 {
   "en": {
     "main": {
-      "title": "Fly again, with Dream.",
-      "download": "Deploy npm version to your project",
-      "downloadCopy": "Copied to clipboard"
+      "titleLine1": "Fly again,",
+      "titleLine2": "with Dream.",
+      "lead": "A modern, zero-dependency JavaScript toolkit. DOM, dates, HTTP, cookies, and the small helpers you reach for every day — all behind one chainable, type-safe API.",
+      "cta1": "Read the docs",
+      "cta2": "Star on GitHub",
+      "installTag": "Latest: v1.0.0-beta.9",
+      "installCopied": "Copied to clipboard"
     },
-    "bind": {
-      "left": {
-        "title": "FastjsDate",
-        "desc": "Can't be simpler. Easy like a pie."
-      },
-      "right": {
-        "button": "Change format"
-      }
+    "features": {
+      "eyebrow": "Why Fastjs",
+      "titleLine1": "Everything you reach for,",
+      "titleLine2": "in one tiny package.",
+      "lead": "Six things every project needs, one consistent surface. Zero runtime dependencies, complete TypeScript types, builds for every environment.",
+      "cards": [
+        {
+          "title": "Zero dependencies",
+          "body": "Pure JavaScript, no runtime deps. Browsers, Node.js 18+, edge runtimes — pick what you ship."
+        },
+        {
+          "title": "Type-first",
+          "body": "Complete TypeScript declarations ship with the package. Generics for every public API."
+        },
+        {
+          "title": "Tree-shakeable",
+          "body": "Marked sideEffects: false. Import only what you use; the rest is dropped at build time."
+        },
+        {
+          "title": "Chainable, by design",
+          "body": "Every write returns the instance. dom().addClass().setStyle().push() reads top to bottom."
+        },
+        {
+          "title": "Same API everywhere",
+          "body": "Browser-only modules (dom, cookie, copy) degrade safely outside a browser instead of throwing."
+        },
+        {
+          "title": "Dev-mode diagnostics",
+          "body": "Coloured warnings with trace IDs in development; entirely stripped from production builds."
+        }
+      ]
+    },
+    "modules": {
+      "eyebrow": "Modules",
+      "titleLine1": "Five focused modules,",
+      "titleLine2": "one mental model.",
+      "lead": "Each module exposes a small, opinionated API. Click through to the documentation to dive deeper.",
+      "cards": [
+        {
+          "tagline": "Select, build, manipulate.",
+          "body": "Tiny jQuery-style ergonomics over real DOM nodes. FastjsDom and FastjsDomList share the same chainable surface, with full element-type hints."
+        },
+        {
+          "tagline": "Parse, format, tick.",
+          "body": "Two-way Y-M-D h:m:s tokens, timezone handling, an \"active\" time view, and a FastjsDate instance for clocks and stopwatches."
+        },
+        {
+          "tagline": "fetch, but ergonomic.",
+          "body": "Path parameters, hooks, debouncing, cancellation, automatic JSON decoding and reusable FastjsRequest instances."
+        },
+        {
+          "tagline": "Cookies, the safe way.",
+          "body": "SameSite-aware defaults, scoped instances, auto encode/decode. No-op outside a browser so SSR code stays shared."
+        },
+        {
+          "tagline": "Everyday helpers.",
+          "body": "rand, randString, uuid, copy, callUntilEnd, secureCall, catchError — plus type guards for FastjsDom."
+        }
+      ]
+    },
+    "date": {
+      "title": "Format a date in one call.",
+      "body": "One token string for both directions — string ↔ Date ↔ timestamp. Cycle the format below to watch toString reformat the same instant.",
+      "bullets": [
+        "Reversible Y-M-D h:m:s tokens — no separate mini-languages for parse and format.",
+        "Built-in timezone offset and an \"active\" view that ticks forward with the real clock.",
+        "Pure JavaScript — works in browsers, Node.js and edge runtimes without DOM access."
+      ],
+      "previewLabel": "Live preview",
+      "cycleBtn": "Cycle format",
+      "formatLabel": "Format:"
     },
     "request": {
-      "left": {
-        "title": "FastjsRequest",
-        "desc": "This, is Fast Request."
-      },
-      "right": {
-        "button": "Send request"
-      }
+      "title": "fetch, but with batteries included.",
+      "body": "Type-safe response generics, path params, debouncing, cancellation, and chainable .then / .catch / .finally — without a single Promise wrapper.",
+      "bullets": [
+        "Auto JSON decoding, with a (data, response) callback signature you actually want.",
+        "Path parameters (/posts/:id), debouncing (wait), timeouts and abort() out of the box.",
+        "Lifecycle hooks (before / init / success / failed) at both global and instance level."
+      ],
+      "previewLabel": "Live preview",
+      "outputPlaceholder": "Click the button to GET a random cat fact.",
+      "outputError": "Could not fetch a fact — please try again.",
+      "btn": "Send request"
     },
     "cookie": {
-      "left": {
-        "title": "FastjsCookie",
-        "desc": "Easy cookie, hot cookie."
-      },
-      "right": {
-        "button": "Set cookie and reload"
-      }
+      "title": "Cookies without the foot-guns.",
+      "body": "Safe encoding, SameSite-aware defaults, scoped instances. Reads return null and writes become no-ops outside a browser, so the same code ships to SSR.",
+      "bullets": [
+        "encodeURIComponent on the way in, decodeURIComponent on the way out — special chars Just Work™.",
+        "Max-Age / expires / path / domain / secure / SameSite collected in one options object.",
+        "cookie.create(path, domain) returns a scoped instance with chainable set/remove."
+      ],
+      "previewLabel": "Try it",
+      "inputPlaceholder": "Type something then save…",
+      "currentLabel": "Currently stored:",
+      "empty": "(nothing yet)",
+      "clearBtn": "remove",
+      "btn": "Save cookie",
+      "saved": "Cookie saved (Max-Age 1h)",
+      "cleared": "Cookie removed"
+    },
+    "thanks": {
+      "eyebrow": "Sponsors",
+      "titleLine1": "Built in the open,",
+      "titleLine2": "backed by friends.",
+      "lead": "Fastjs is free and open source thanks to the people who help keep the JavaScript ecosystem light.",
+      "cta1": "Become a sponsor",
+      "cta2": "View all sponsors"
     },
     "bottom": {
-      "data": {
-        "authorInfo": "Copyright © 2022-2024 xiaodong2008"
-      }
+      "tag": "A modern JavaScript toolkit — small, opinionated, type-safe. Released under the MIT license.",
+      "columns": [
+        {
+          "title": "Project",
+          "links": [
+            {
+              "text": "Docs",
+              "href": "https://docs.fastjs.dev/",
+              "internal": false
+            },
+            {
+              "text": "Playground",
+              "href": "https://stackblitz.com/edit/fastjs-playground?file=src%2Fmain.ts",
+              "internal": false
+            },
+            {
+              "text": "Release notes",
+              "href": "https://github.com/fastjs-team/core/releases",
+              "internal": false
+            }
+          ]
+        },
+        {
+          "title": "Community",
+          "links": [
+            {
+              "text": "GitHub",
+              "href": "https://github.com/fastjs-team/core/",
+              "internal": false
+            },
+            { "text": "Sponsor", "href": "/sponsor", "internal": true },
+            {
+              "text": "Contributing",
+              "href": "https://github.com/fastjs-team/core/blob/main/.github/contributing.md",
+              "internal": false
+            }
+          ]
+        },
+        {
+          "title": "More",
+          "links": [
+            {
+              "text": "npm package",
+              "href": "https://www.npmjs.com/package/jsfast",
+              "internal": false
+            },
+            {
+              "text": "Code of conduct",
+              "href": "https://docs.fastjs.dev/other/code-of-conduct",
+              "internal": false
+            }
+          ]
+        }
+      ],
+      "builtBy": "Built with care by"
     }
   },
   "zh": {
     "main": {
-      "title": "携带梦想，再次起航",
-      "download": "部署到项目",
-      "downloadCopy": "已复制到剪贴板"
+      "titleLine1": "携带梦想，",
+      "titleLine2": "再次起航。",
+      "lead": "一个现代、零依赖的 JavaScript 工具库。DOM、日期、HTTP、Cookie，以及日常会用到的所有小工具——全部隐藏在一套链式、类型安全的 API 之后。",
+      "cta1": "查看文档",
+      "cta2": "Star on GitHub",
+      "installTag": "最新版本：v1.0.0-beta.9",
+      "installCopied": "已复制到剪贴板"
     },
-    "bind": {
-      "left": {
-        "title": "FastjsDate",
-        "desc": "就好像AI自动帮你把String转成Date一样简单"
-      },
-      "right": {
-        "button": "更换格式"
-      }
+    "features": {
+      "eyebrow": "为什么选 Fastjs",
+      "titleLine1": "日常所需的一切，",
+      "titleLine2": "都在同一个包里。",
+      "lead": "六大设计原则，一致的 API 风格。零运行时依赖，完整 TypeScript 类型，覆盖各种环境。",
+      "cards": [
+        {
+          "title": "零依赖",
+          "body": "纯 JavaScript，没有任何运行时依赖。浏览器、Node.js 18+、边缘运行时随便挑。"
+        },
+        {
+          "title": "类型优先",
+          "body": "完整的 TypeScript 类型声明随包发布，所有公共 API 支持泛型。"
+        },
+        {
+          "title": "Tree-Shake 友好",
+          "body": "标注了 sideEffects: false。只 import 用到的部分，其它会在构建时被剔除。"
+        },
+        {
+          "title": "链式 API",
+          "body": "所有写入方法都返回实例本身。dom().addClass().setStyle().push() 自上而下一气呵成。"
+        },
+        {
+          "title": "一致的运行表现",
+          "body": "仅浏览器可用的模块（dom、cookie、copy）在非浏览器环境会安全降级，而非抛错。"
+        },
+        {
+          "title": "开发模式诊断",
+          "body": "开发构建提供带追踪 ID 的彩色诊断，生产构建会自动剔除全部诊断代码。"
+        }
+      ]
+    },
+    "modules": {
+      "eyebrow": "模块",
+      "titleLine1": "五个聚焦的模块，",
+      "titleLine2": "同一套心智模型。",
+      "lead": "每个模块都暴露一套小而专注的 API。点击卡片可直达对应文档。",
+      "cards": [
+        {
+          "tagline": "选择、构造、操作。",
+          "body": "类 jQuery 风格、覆盖真实 DOM 节点。FastjsDom 与 FastjsDomList 共享同一套链式接口，且能获得完整的元素类型提示。"
+        },
+        {
+          "tagline": "解析、格式化、走动。",
+          "body": "双向的 Y-M-D h:m:s token、时区处理、\"活动时间\"，以及面向时钟/秒表的 FastjsDate 实例。"
+        },
+        {
+          "tagline": "ergonomic 的 fetch。",
+          "body": "路径参数、Hook、防抖、取消、自动 JSON 解码，以及可复用的 FastjsRequest 实例。"
+        },
+        {
+          "tagline": "安全的 Cookie。",
+          "body": "SameSite 默认友好、作用域实例、自动编解码。在非浏览器环境会安全 no-op，便于与 SSR 共用一套代码。"
+        },
+        {
+          "tagline": "日常小工具。",
+          "body": "rand、randString、uuid、copy、callUntilEnd、secureCall、catchError，以及 FastjsDom 的类型守卫。"
+        }
+      ]
+    },
+    "date": {
+      "title": "一行代码格式化日期。",
+      "body": "解析与格式化共用一套 token —— string ↔ Date ↔ timestamp 任意互转。点击下方按钮切换格式，可直观看到 toString 的输出。",
+      "bullets": [
+        "可逆的 Y-M-D h:m:s token —— 无需为 parse 和 format 分别学习两套 mini-language。",
+        "内建时区偏移与会持续走动的\"活动时间\"，秒表/时钟开箱即用。",
+        "纯 JavaScript —— 浏览器、Node.js、边缘运行时均可用，不依赖 DOM。"
+      ],
+      "previewLabel": "实时预览",
+      "cycleBtn": "切换格式",
+      "formatLabel": "当前格式："
     },
     "request": {
-      "left": {
-        "title": "FastjsRequest",
-        "desc": "简单和多元化齐聚一体"
-      },
-      "right": {
-        "button": "发送请求"
-      }
+      "title": "更人性化的 fetch。",
+      "body": "类型安全的响应泛型、路径参数、防抖、取消，以及链式 .then / .catch / .finally —— 全部无需手写 Promise 包装。",
+      "bullets": [
+        "自动 JSON 解码，回调签名是更顺手的 (data, response)。",
+        "路径参数（/posts/:id）、防抖（wait）、超时与 abort() 全部开箱即用。",
+        "支持全局与实例两层生命周期 Hook（before / init / success / failed）。"
+      ],
+      "previewLabel": "实时预览",
+      "outputPlaceholder": "点击按钮，GET 一条随机的猫咪小知识。",
+      "outputError": "获取失败，请稍后重试。",
+      "btn": "发送请求"
+    },
+    "cookie": {
+      "title": "不再踩 Cookie 的坑。",
+      "body": "安全编码、SameSite 友好默认、作用域实例。读取在非浏览器返回 null，写入则 no-op，让同一份代码可以照搬到 SSR。",
+      "bullets": [
+        "写入时 encodeURIComponent、读取时 decodeURIComponent —— 特殊字符无须自行转义。",
+        "Max-Age / expires / path / domain / secure / SameSite 都集中在一个 options 对象里。",
+        "cookie.create(path, domain) 返回一个带默认作用域的实例，set/remove 可链式调用。"
+      ],
+      "previewLabel": "试一试",
+      "inputPlaceholder": "输入任意内容然后保存…",
+      "currentLabel": "当前存储：",
+      "empty": "（暂无）",
+      "clearBtn": "删除",
+      "btn": "保存 Cookie",
+      "saved": "Cookie 已保存（Max-Age 1 小时）",
+      "cleared": "Cookie 已删除"
+    },
+    "thanks": {
+      "eyebrow": "赞助者",
+      "titleLine1": "在开源中诞生，",
+      "titleLine2": "由朋友们支持。",
+      "lead": "Fastjs 是免费且开源的项目，感谢所有相信\"让 JavaScript 生态保持轻量\"的赞助者。",
+      "cta1": "成为赞助者",
+      "cta2": "查看所有赞助者"
     },
     "bottom": {
-      "data": {
-        "authorInfo": "由fastjs-team(xiaodong2008)制作"
-      }
+      "tag": "一个现代、轻量、强类型的 JavaScript 工具库。基于 MIT 协议发布。",
+      "columns": [
+        {
+          "title": "项目",
+          "links": [
+            {
+              "text": "文档",
+              "href": "https://docs.fastjs.dev/",
+              "internal": false
+            },
+            {
+              "text": "Playground",
+              "href": "https://stackblitz.com/edit/fastjs-playground?file=src%2Fmain.ts",
+              "internal": false
+            },
+            {
+              "text": "发布日志",
+              "href": "https://github.com/fastjs-team/core/releases",
+              "internal": false
+            }
+          ]
+        },
+        {
+          "title": "社区",
+          "links": [
+            {
+              "text": "GitHub",
+              "href": "https://github.com/fastjs-team/core/",
+              "internal": false
+            },
+            { "text": "赞助", "href": "/sponsor", "internal": true },
+            {
+              "text": "贡献指南",
+              "href": "https://github.com/fastjs-team/core/blob/main/.github/contributing.md",
+              "internal": false
+            }
+          ]
+        },
+        {
+          "title": "更多",
+          "links": [
+            {
+              "text": "npm 包",
+              "href": "https://www.npmjs.com/package/jsfast",
+              "internal": false
+            },
+            {
+              "text": "行为准则",
+              "href": "https://docs.fastjs.dev/other/code-of-conduct",
+              "internal": false
+            }
+          ]
+        }
+      ],
+      "builtBy": "用心打磨于"
     }
   },
   "ja": {
     "main": {
-      "title": "夢をのせて再び船出",
-      "download": "プロジェクへトデプロイ",
-      "downloadCopy": "クリップボードにコピーされました"
+      "titleLine1": "夢をのせて、",
+      "titleLine2": "再び船出。",
+      "lead": "依存ゼロ・モダンな JavaScript ツールキット。DOM、日付、HTTP、Cookie、そして日常的に使う小さなユーティリティをひとつのチェイン可能・型安全な API に。",
+      "cta1": "ドキュメントを読む",
+      "cta2": "GitHub でスター",
+      "installTag": "最新バージョン：v1.0.0-beta.9",
+      "installCopied": "クリップボードにコピーしました"
     },
-    "bind": {
-      "left": {
-        "title": "FastjsDate",
-        "desc": "AI が文字列を日付に自動的に変換するのと同じくらい簡単"
-      },
-      "right": {
-        "button": "フォーマット変更"
-      }
+    "features": {
+      "eyebrow": "Fastjs を選ぶ理由",
+      "titleLine1": "毎日使うものすべてを、",
+      "titleLine2": "ひとつの小さなパッケージに。",
+      "lead": "6 つの設計原則、一貫した API。ランタイム依存ゼロ、完全な TypeScript 型、あらゆる環境向けビルドを提供。",
+      "cards": [
+        {
+          "title": "依存ゼロ",
+          "body": "純粋な JavaScript。ランタイム依存はゼロ。ブラウザ、Node.js 18+、エッジランタイムどこでも動きます。"
+        },
+        {
+          "title": "型ファースト",
+          "body": "完全な TypeScript 型定義が同梱されており、すべての公開 API がジェネリクスに対応。"
+        },
+        {
+          "title": "Tree-Shake フレンドリー",
+          "body": "sideEffects: false を宣言済み。必要なものだけ import し、それ以外はビルド時に削除されます。"
+        },
+        {
+          "title": "チェイン可能な設計",
+          "body": "書き込み系のメソッドはインスタンスを返します。dom().addClass().setStyle().push() のように上から下へ読めます。"
+        },
+        {
+          "title": "どこでも同じ API",
+          "body": "ブラウザ専用モジュール（dom、cookie、copy）は非ブラウザ環境で安全にフォールバックし、例外を投げません。"
+        },
+        {
+          "title": "開発モード診断",
+          "body": "開発ビルドではトレース ID 付きのカラフルな警告を出力し、本番ビルドからは完全に取り除かれます。"
+        }
+      ]
+    },
+    "modules": {
+      "eyebrow": "モジュール",
+      "titleLine1": "5 つの集中したモジュール、",
+      "titleLine2": "ひとつのメンタルモデル。",
+      "lead": "各モジュールは小さく、特化した API を提供します。気になるモジュールはカードから直接ドキュメントへ。",
+      "cards": [
+        {
+          "tagline": "選択・生成・操作。",
+          "body": "実 DOM ノードに対する jQuery 風の操作感。FastjsDom と FastjsDomList は同じチェイン可能 API を共有し、要素の型ヒントもフルで効きます。"
+        },
+        {
+          "tagline": "解析・整形・動く。",
+          "body": "双方向の Y-M-D h:m:s トークン、タイムゾーン対応、\"アクティブ時間\"、そして時計やストップウォッチに使える FastjsDate。"
+        },
+        {
+          "tagline": "使い心地の良い fetch。",
+          "body": "パスパラメータ、フック、デバウンス、キャンセル、自動 JSON デコード、再利用可能な FastjsRequest インスタンス。"
+        },
+        {
+          "tagline": "安全な Cookie。",
+          "body": "SameSite に配慮した初期値、スコープ付きインスタンス、自動エンコード/デコード。非ブラウザでも安全に no-op になります。"
+        },
+        {
+          "tagline": "日常のユーティリティ。",
+          "body": "rand、randString、uuid、copy、callUntilEnd、secureCall、catchError、そして FastjsDom 用の型ガード。"
+        }
+      ]
+    },
+    "date": {
+      "title": "1 行で日付を整形。",
+      "body": "解析と整形で同じトークンを使用 —— string ↔ Date ↔ timestamp を自由に往復できます。下のボタンでフォーマットを切り替えて toString の動きを確認できます。",
+      "bullets": [
+        "可逆な Y-M-D h:m:s トークン —— parse と format で別ミニ言語を覚える必要はありません。",
+        "タイムゾーン補正と、実時間とともに進む\"アクティブ時間\"を内蔵。",
+        "純粋な JavaScript —— ブラウザ、Node.js、エッジランタイム、DOM 不要で動作。"
+      ],
+      "previewLabel": "ライブプレビュー",
+      "cycleBtn": "フォーマット切替",
+      "formatLabel": "現在のフォーマット："
     },
     "request": {
-      "left": {
-        "title": "FastjsRequest",
-        "desc": "シンプルと多様化の融合"
-      },
-      "right": {
-        "button": "リクエスト送信"
-      }
+      "title": "電池付きの fetch。",
+      "body": "型安全なレスポンスジェネリクス、パスパラメータ、デバウンス、キャンセル、そしてチェイン可能な .then / .catch / .finally —— Promise ラッパー不要。",
+      "bullets": [
+        "JSON を自動デコードし、コールバックは扱いやすい (data, response) シグネチャ。",
+        "パスパラメータ（/posts/:id）、デバウンス（wait）、タイムアウト、abort() を標準搭載。",
+        "グローバル・インスタンス両方のライフサイクルフック（before / init / success / failed）に対応。"
+      ],
+      "previewLabel": "ライブプレビュー",
+      "outputPlaceholder": "ボタンを押してランダムな猫の豆知識を GET。",
+      "outputError": "取得に失敗しました。もう一度お試しください。",
+      "btn": "リクエスト送信"
+    },
+    "cookie": {
+      "title": "Cookie の罠を回避。",
+      "body": "安全なエンコード、SameSite を考慮した既定値、スコープ付きインスタンス。非ブラウザでは読み取りが null、書き込みは no-op になるため、同じコードを SSR でも使えます。",
+      "bullets": [
+        "書き込み時は encodeURIComponent、読み取り時は decodeURIComponent —— 特殊文字を意識せずに済みます。",
+        "Max-Age / expires / path / domain / secure / SameSite をひとつの options にまとめて指定。",
+        "cookie.create(path, domain) はスコープ付きインスタンスを返し、set/remove をチェインできます。"
+      ],
+      "previewLabel": "試してみる",
+      "inputPlaceholder": "何か入力して保存…",
+      "currentLabel": "現在の値：",
+      "empty": "（まだありません）",
+      "clearBtn": "削除",
+      "btn": "Cookie を保存",
+      "saved": "Cookie を保存しました（Max-Age 1 時間）",
+      "cleared": "Cookie を削除しました"
+    },
+    "thanks": {
+      "eyebrow": "スポンサー",
+      "titleLine1": "オープンな場で生まれ、",
+      "titleLine2": "仲間に支えられて。",
+      "lead": "Fastjs は無料・オープンソースであり、JavaScript エコシステムを軽く保ちたいというスポンサーの皆さまに支えられています。",
+      "cta1": "スポンサーになる",
+      "cta2": "スポンサー一覧"
     },
     "bottom": {
-      "data": {
-        "authorInfo": "xiaodong2008 によって作成されました"
-      }
+      "tag": "モダンで小さく、型安全な JavaScript ツールキット。MIT ライセンスでリリース。",
+      "columns": [
+        {
+          "title": "プロジェクト",
+          "links": [
+            {
+              "text": "ドキュメント",
+              "href": "https://docs.fastjs.dev/",
+              "internal": false
+            },
+            {
+              "text": "Playground",
+              "href": "https://stackblitz.com/edit/fastjs-playground?file=src%2Fmain.ts",
+              "internal": false
+            },
+            {
+              "text": "リリースノート",
+              "href": "https://github.com/fastjs-team/core/releases",
+              "internal": false
+            }
+          ]
+        },
+        {
+          "title": "コミュニティ",
+          "links": [
+            {
+              "text": "GitHub",
+              "href": "https://github.com/fastjs-team/core/",
+              "internal": false
+            },
+            { "text": "スポンサー", "href": "/sponsor", "internal": true },
+            {
+              "text": "コントリビュート",
+              "href": "https://github.com/fastjs-team/core/blob/main/.github/contributing.md",
+              "internal": false
+            }
+          ]
+        },
+        {
+          "title": "その他",
+          "links": [
+            {
+              "text": "npm パッケージ",
+              "href": "https://www.npmjs.com/package/jsfast",
+              "internal": false
+            },
+            {
+              "text": "行動規範",
+              "href": "https://docs.fastjs.dev/other/code-of-conduct",
+              "internal": false
+            }
+          ]
+        }
+      ],
+      "builtBy": "丁寧に作っているのは"
     }
   }
 }
